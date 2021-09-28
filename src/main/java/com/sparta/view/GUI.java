@@ -15,12 +15,12 @@ import javafx.stage.Stage;
 public class GUI extends Application{
 
     public GUI() {
-        launch();
+        //launch();
     }
 
     @Override
-    public void start(Stage stage) throws Exception {
-
+    public void start(Stage primaryStage) throws Exception {
+        primaryStage.setTitle("Title of the Window");
     }
 
 
