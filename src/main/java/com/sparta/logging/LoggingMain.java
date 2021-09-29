@@ -8,12 +8,15 @@ public class LoggingMain {
     private static Logger logger = Logger.getLogger("My Application Logger");
 
     public static Logger getLogger() {
+        PropertyConfigurator.configure("log4j.properties");
         return logger;
     }
 
     public static void setLogger(Logger logger) {
         LoggingMain.logger = logger;
     }
+
+//    public static void
 //    public static void main(String[] args) {
 //        PropertyConfigurator.configure("log4j.properties");
 //        logger.warn("Warning Message");

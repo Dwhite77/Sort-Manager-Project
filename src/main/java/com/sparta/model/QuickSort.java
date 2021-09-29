@@ -51,5 +51,8 @@ public class QuickSort extends SuperSort{
         return (i + 1);
     }
 
-
+    @Override
+    public String toString() {
+        return "QuickSort";
+    }
 }

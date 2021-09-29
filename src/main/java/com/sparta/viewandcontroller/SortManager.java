@@ -1,7 +1,10 @@
 package com.sparta.viewandcontroller;
 
+import com.sparta.logging.LoggingMain;
 import com.sparta.model.*;
+import org.apache.log4j.Logger;
 
+import static java.lang.System.getLogger;
 import static java.lang.System.nanoTime;
 
 public class SortManager {
@@ -19,19 +22,39 @@ public class SortManager {
         start = nanoTime();
 
         // if im going to use a gui do I need to add try catch exceptions here?
+        // my gui will hav an input for the size of array so I will catch that and can use what I have here to replace it with
 
-        switch (choice){
-            case "BubbleSort","bubblesort","B","b","Bubble","bubble": theFactory = new BubbleSort(); break;
-            case "MergeSort","mergesort","merge","Merge","M","m": theFactory = new MergeSort(); break;
-            case "QuickSort","quicksort","q","Q","quick","Quick" : theFactory = new QuickSort(); break;
-            default: theFactory = new MergeSort(); break;
+        switch (choice) {
+            case "BubbleSort", "bubblesort", "B", "b", "Bubble", "bubble":
+                theFactory = new BubbleSort();
+                break;
+            case "MergeSort", "mergesort", "merge", "Merge", "M", "m":
+                theFactory = new MergeSort();
+                break;
+            case "QuickSort", "quicksort", "q", "Q", "quick", "Quick":
+                theFactory = new QuickSort();
+                break;
+            default:
+                theFactory = null;
+                break;
         }
+
         //int[] mySortedArray = theFactory.sort(myArr);
         //theFactory.printArray(mySortedArray);
-        theFactory.printArray(theFactory.sort(myArr));
+        try {
+            theFactory.printArray(theFactory.sort(myArr));
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.err.println("Choose an actual Sort!");
+            Logger log = LoggingMain.getLogger();
+            log.error("User didn't Select an actual sort");
+            AskQuestions.askQuestions();
+        }finally {
+
         end = nanoTime();
-        System.out.println("Type of sort used: "+ theFactory.toString());
-        System.out.println("Elapsed Time: "+ (end - start));
+        System.out.println("Type of sort used: " + theFactory.toString());
+        System.out.println("Elapsed Time: " + (end - start));
+        }
     }
 
 }

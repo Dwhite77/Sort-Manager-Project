@@ -19,4 +19,8 @@ public class BubbleSort extends SuperSort {
         return arrInp;
     }
 
+    @Override
+    public String toString() {
+        return "BubbleSort";
+    }
 }
