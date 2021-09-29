@@ -1,7 +1,9 @@
 package com.sparta.model;
 
 public class MergeSort extends SuperSort {
-
+    //--------------------------------------------------------------------------
+    // this is the method where the mergeSort is done
+    //--------------------------------------------------------------------------
     @Override
     public int[] sort(int[] array)
     {

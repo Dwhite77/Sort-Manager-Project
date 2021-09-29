@@ -1,7 +1,9 @@
 package com.sparta.model;
 
 public class BubbleSort extends SuperSort {
-
+    //--------------------------------------------------------------------------
+    // this is the method where the bubbleSort is done
+    //--------------------------------------------------------------------------
     @Override
     public int[] sort(int[] arrInp) {
         int n = arrInp.length;

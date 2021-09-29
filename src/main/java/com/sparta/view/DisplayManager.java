@@ -5,7 +5,7 @@ public class DisplayManager {
 
 
 
-        new GUI(); // if you're not doing anything with gui then turn this off
+        //new GUI(); // if you're not doing anything with gui then turn this off
 
 
 

@@ -2,7 +2,9 @@ package com.sparta.model;
 
 
 public class QuickSort extends SuperSort{
-
+    //--------------------------------------------------------------------------
+    // this is the sort function that triggers quicksort by arranging
+    //--------------------------------------------------------------------------
     @Override
     public int[] sort(int[] arr){
         int low = 0;
@@ -10,7 +12,9 @@ public class QuickSort extends SuperSort{
         quickSort(arr,low,high);
         return arr;
     }
-
+    //--------------------------------------------------------------------------
+    // this is the method where the sorting is actually done
+    //--------------------------------------------------------------------------
     static int[] quickSort(int[] arr, int low, int high)
     {
         if (low < high)
