@@ -1,7 +1,9 @@
 package com.sparta.model;
 
+import com.sparta.logging.LoggingMain;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestBubbleSort {
     @Test
@@ -16,6 +18,8 @@ public class TestBubbleSort {
                 count++;
             }
         }
-        assertTrue(count == sortedArr.length-1);
+        assertEquals(count,sortedArr.length-1);
+        LoggingMain log = new LoggingMain();
+        //log.
     }
 }

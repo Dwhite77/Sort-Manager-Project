@@ -1,6 +1,8 @@
 package com.sparta.model;
 
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
@@ -20,6 +22,6 @@ public class TestMergeSort {
                 count++;
             }
         }
-        assertTrue(count == sortedArr.length-1);
+        assertEquals(count,sortedArr.length-1);
     }
 }
