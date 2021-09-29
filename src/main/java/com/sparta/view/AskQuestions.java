@@ -22,10 +22,13 @@ public class AskQuestions {
 
         System.out.println("Do you want to do another sort?");
         String again = scn.next();
-        if(again.equals("yes")){
+
+        if(again.equals("yes") || again.equals("y")){
             askQuestions();
         }
         else System.exit(0);
 
     }
+
+
 }

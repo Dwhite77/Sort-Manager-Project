@@ -9,8 +9,8 @@ public class DisplayManager {
 
 
 
-        AskQuestions textQuestions = new AskQuestions();
-        textQuestions.askQuestions();
+        AskQuestions testQuestions = new AskQuestions();
+        testQuestions.askQuestions();
 
 
 

@@ -3,10 +3,10 @@ package com.sparta.model;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class testBubbleSort {
+public class TestQuickSort {
     @Test
     public void testSort(){
-        BubbleSort myBubbleSort = new BubbleSort();
+        QuickSort myQuickSort = new QuickSort();
 //        myQuickSort.sort()
 //        assertTrue();
     }
