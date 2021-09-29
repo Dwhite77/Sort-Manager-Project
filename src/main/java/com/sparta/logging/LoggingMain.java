@@ -16,7 +16,6 @@ public class LoggingMain {
         LoggingMain.logger = logger;
     }
 
-//    public static void
 //    public static void main(String[] args) {
 //        PropertyConfigurator.configure("log4j.properties");
 //        logger.warn("Warning Message");

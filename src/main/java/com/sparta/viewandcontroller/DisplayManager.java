@@ -10,8 +10,6 @@ public class DisplayManager{
         GUI gui = new GUI(); // if you're not doing anything with gui then turn this off
         gui.guiRun(args);
 
-//        AskQuestions testQuestions = new AskQuestions();
-//        testQuestions.askQuestions();
         AskQuestions.askQuestions();
 
 
