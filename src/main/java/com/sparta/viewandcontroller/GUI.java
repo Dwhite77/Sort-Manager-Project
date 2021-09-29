@@ -1,4 +1,4 @@
-package com.sparta.view;
+package com.sparta.viewandcontroller;
 
 import javafx.application.Application;
 import static javafx.application.Application.launch;
@@ -9,8 +9,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 
 import javafx.scene.layout.GridPane;
-import javafx.scene.text.Text;
-import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 //----------------------------------------------------------------------------------------------
 //  GUI stuff
@@ -35,7 +33,7 @@ public class GUI extends Application{
         gridPane.setMinSize(400,200);
         //setting the border
         gridPane.setPadding(new Insets(10,10,10,10));
-        //setting vert and hor gaps between columns
+        //setting vert and horiz gaps between columns
         gridPane.setVgap(5);
         gridPane.setHgap(5);
 

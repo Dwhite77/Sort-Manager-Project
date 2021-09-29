@@ -1,4 +1,6 @@
-package com.sparta.model;
+package com.sparta.viewandcontroller;
+
+import com.sparta.model.*;
 
 import static java.lang.System.nanoTime;
 
@@ -15,6 +17,9 @@ public class SortManager {
         IntArrayGenerate intArray = new IntArrayGenerate();
         int[] myArr = intArray.intArrayGen(arraySize);
         start = nanoTime();
+
+        // if im going to use a gui do i need to add try catch exceptions here?
+
         switch (choice){
             case "BubbleSort","bubblesort","B","b","Bubble","bubble": theFactory = new BubbleSort(); break;
             case "MergeSort","mergesort","merge","Merge","M","m": theFactory = new MergeSort(); break;

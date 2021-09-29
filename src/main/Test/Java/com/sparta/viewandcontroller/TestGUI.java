@@ -1,6 +1,5 @@
-package com.sparta.view;
+package com.sparta.viewandcontroller;
 
-import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TestGUI {

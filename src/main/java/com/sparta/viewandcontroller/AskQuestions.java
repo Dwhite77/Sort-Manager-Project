@@ -1,6 +1,4 @@
-package com.sparta.controller;
-
-import com.sparta.model.SortManager;
+package com.sparta.viewandcontroller;
 
 import java.util.Scanner;
 

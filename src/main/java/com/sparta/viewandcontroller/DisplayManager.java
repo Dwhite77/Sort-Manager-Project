@@ -1,6 +1,4 @@
-package com.sparta.view;
-
-import com.sparta.controller.AskQuestions;
+package com.sparta.viewandcontroller;
 
 
 import static javafx.application.Application.launch;
