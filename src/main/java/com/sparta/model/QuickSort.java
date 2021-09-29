@@ -12,9 +12,11 @@ public class QuickSort extends SuperSort{
         quickSort(arr,low,high);
         return arr;
     }
+
     //--------------------------------------------------------------------------
     // this is the method where the sorting is actually done
     //--------------------------------------------------------------------------
+
     static int[] quickSort(int[] arr, int low, int high)
     {
         if (low < high)

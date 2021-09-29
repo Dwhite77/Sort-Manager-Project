@@ -8,6 +8,8 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 //----------------------------------------------------------------------------------------------
@@ -23,9 +25,16 @@ public class GUI extends Application{
     public void start(Stage primaryStage){
 
         //buttons
-        Button buttonBubble = new Button("BubbleSort");
-        Button buttonMerge = new Button("MergeSort");
-        Button buttonQuick = new Button("QuickSort");
+        Button buttonDone = new Button("Done");
+//        Button buttonMerge = new Button("MergeSort");
+//        Button buttonQuick = new Button("QuickSort");
+
+//        ChoiceBox buttonChoiceBox = new ChoiceBox();
+//        buttonChoiceBox.getItems().addAll("BubbleSort", "MergeSort", "QuickSort", "BinaryTree");
+
+        CheckBox bubbleCheckBox = new CheckBox("BubbleSort");
+        CheckBox mergeCheckBox = new CheckBox("MergeSort");
+        CheckBox quickCheckBox = new CheckBox("QuickSort");
 
         //creating pane object
         GridPane gridPane = new GridPane();
@@ -41,14 +50,18 @@ public class GUI extends Application{
         gridPane.setAlignment(Pos.CENTER);
 
         //arranging buttons onto grid nodes
-        gridPane.add(buttonBubble, 0,0);
-        gridPane.add(buttonMerge,1,0);
-        gridPane.add(buttonQuick,2,0);
+        gridPane.add(buttonDone, 0,10);
+//        gridPane.add(buttonMerge,1,0);
+//        gridPane.add(buttonQuick,2,0);
+        gridPane.add(bubbleCheckBox,0, 0);
+        gridPane.add(mergeCheckBox,0, 1);
+        gridPane.add(quickCheckBox,0, 2);
+//        gridPane.add(buttonChoiceBox,3,0);
 
         //button styling
-        buttonBubble.setStyle("-fx-background-color: darkslateblue; -fx-text-fill: white;");
-        buttonQuick.setStyle("-fx-background-color: darkslateblue; -fx-text-fill: white;");
-        buttonMerge.setStyle("-fx-background-color: darkslateblue; -fx-text-fill: white;");
+        buttonDone.setStyle("-fx-background-color: darkslateblue; -fx-text-fill: white;");
+//        buttonQuick.setStyle("-fx-background-color: darkslateblue; -fx-text-fill: white;");
+//        buttonMerge.setStyle("-fx-background-color: darkslateblue; -fx-text-fill: white;");
 
         //pane styling
         gridPane.setStyle("-fx-background-color: BEIGE;");

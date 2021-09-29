@@ -18,7 +18,7 @@ public class SortManager {
         int[] myArr = intArray.intArrayGen(arraySize);
         start = nanoTime();
 
-        // if im going to use a gui do i need to add try catch exceptions here?
+        // if im going to use a gui do I need to add try catch exceptions here?
 
         switch (choice){
             case "BubbleSort","bubblesort","B","b","Bubble","bubble": theFactory = new BubbleSort(); break;
