@@ -1,4 +1,4 @@
-package com.sparta.view;
+package com.sparta.controller;
 
 import com.sparta.model.SortManager;
 

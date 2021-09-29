@@ -15,7 +15,7 @@ import javafx.stage.Stage;
 public class GUI extends Application{
 
     public GUI() {
-        //launch();
+        launch();
     }
 
     @Override
