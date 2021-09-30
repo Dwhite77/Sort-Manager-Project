@@ -1,6 +1,16 @@
 package com.sparta.viewandcontroller;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
+
 
 public class TestGUI {
+
+//    @Test
+//    public void testTextFieldSetOnAction(){
+//
+//
+//    }
+
 }
