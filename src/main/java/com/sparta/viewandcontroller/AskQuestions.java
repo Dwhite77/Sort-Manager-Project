@@ -14,6 +14,13 @@ public class AskQuestions {
         String choice = scn.next();
         System.out.println("What size array would you like to use?");
         int choice2 = scn.nextInt();
+//        try{
+//
+//        }catch(){
+//
+//        }
+//            I want to go through this and make it so that the integer input is checked, ill have to do a test of a negative int or something
+
 
         SortManager newManager = new SortManager();
         newManager.sortManager(choice2, choice);
