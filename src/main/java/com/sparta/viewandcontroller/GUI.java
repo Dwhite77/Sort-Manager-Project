@@ -68,7 +68,7 @@ public class GUI extends Application{
         buttonDone.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                System.out.println("Done");
+                System.exit(0);
             }
         });
         buttonAgain.setOnAction(new EventHandler<ActionEvent>() {
