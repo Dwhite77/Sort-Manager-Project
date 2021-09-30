@@ -1,5 +1,6 @@
 package com.sparta.viewandcontroller;
 
+import com.sparta.logging.LoggingMain;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
 
@@ -15,6 +16,7 @@ import javafx.scene.control.*;
 
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+import org.apache.log4j.Logger;
 
 import java.util.EventListener;
 //----------------------------------------------------------------------------------------------
@@ -23,12 +25,14 @@ import java.util.EventListener;
 
 public class GUI extends Application{
 
-
     public static void guiRun(String[] args) {
         launch();
     }
+
     @Override
     public void start(Stage primaryStage){
+
+        int buttonWidth = 75;
 
         Button buttonDone = new Button("Done");
         Button buttonAgain = new Button("Again?");
@@ -42,10 +46,10 @@ public class GUI extends Application{
 
         TextField arrayTextField = new TextField("Array Size?");
 
-        // set widths of buttons and text field so they are the same
-        buttonDone.setPrefWidth(75);
-        buttonAgain.setPrefWidth(75);
-        arrayTextField.setPrefWidth(75);
+        // set widths of buttons and text field, so they are the same
+        buttonDone.setPrefWidth(buttonWidth);
+        buttonAgain.setPrefWidth(buttonWidth);
+        arrayTextField.setPrefWidth(buttonWidth);
 
         //-------------------------------------------------------------------------
         //Event handling
@@ -57,9 +61,11 @@ public class GUI extends Application{
                 int arraySize = 0;
                 try{
                     arraySize = Integer.parseInt(s);
-                    System.out.println(arraySize); // <------------------------------------------------------------------this is what I want to connect to the array gen 
+                    System.out.println(arraySize); // <------------------------------------------------------------------this is what I want to connect to the array gen
                 } catch(Exception e){
                     System.err.println("Not a valid int");
+                    Logger log = LoggingMain.getLogger();
+                    log.error("User didn't select a valid int");
                 }
             }
         });

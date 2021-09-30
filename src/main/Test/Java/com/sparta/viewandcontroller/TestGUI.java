@@ -7,10 +7,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class TestGUI {
 
-    @Test
-    public void testTextFieldSetOnAction(){
-
-
-    }
+//    @Test
+//    public void testTextFieldSetOnAction(){
+//
+//
+//    }
 
 }

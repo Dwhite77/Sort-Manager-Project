@@ -11,7 +11,7 @@ import java.util.Scanner;
 public class AskQuestions {
     public static void askQuestions(){
         int choice2 =0;
-        System.out.println("What type of sort would you like to use? BubbleSort, QuickSort or MergeSort");
+        System.out.println("What type of sort would you like to use? BubbleSort, QuickSort, BinaryTreeSort or MergeSort");
         Scanner scn = new Scanner(System.in);
         String choice = scn.next();
         System.out.println("What size array would you like to use?");

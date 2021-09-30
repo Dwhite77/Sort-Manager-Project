@@ -36,7 +36,7 @@ public class SortManager {
             // my gui will hav an input for the size of array so I will catch that and can use what I have here to replace it with
 
             switch (choice) {
-                case "BubbleSort", "bubblesort", "B", "b", "Bubble", "bubble":
+                case "BubbleSort", "bubblesort", "Bubble", "bubble":
                     theFactory = new BubbleSort();
                     break;
                 case "MergeSort", "mergesort", "merge", "Merge", "M", "m":
@@ -44,6 +44,9 @@ public class SortManager {
                     break;
                 case "QuickSort", "quicksort", "q", "Q", "quick", "Quick":
                     theFactory = new QuickSort();
+                    break;
+                case "Binary", "binary", "bin", "Bin", "BinarySort", "BinaryTree", "BinaryTreeSort" , "binarytreesort", "binarysort", "binarytree":
+                    theFactory = new BinaryTreeSort();
                     break;
                 default:
                     theFactory = null;
