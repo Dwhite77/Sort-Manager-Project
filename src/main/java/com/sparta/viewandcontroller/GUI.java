@@ -10,6 +10,7 @@ import javafx.scene.control.Button;
 
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 //----------------------------------------------------------------------------------------------
@@ -26,12 +27,13 @@ public class GUI extends Application{
 
         //buttons
         Button buttonDone = new Button("Done");
-//        Button buttonMerge = new Button("MergeSort");
-//        Button buttonQuick = new Button("QuickSort");
+        buttonDone.setPrefWidth(75);
+        Button buttonAgain = new Button("Again?");
+        buttonAgain.setPrefWidth(75);
 
-//        ChoiceBox buttonChoiceBox = new ChoiceBox();
-//        buttonChoiceBox.getItems().addAll("BubbleSort", "MergeSort", "QuickSort", "BinaryTree");
-
+        TextField arrayTextField = new TextField("Array Size?");
+        arrayTextField.setPrefWidth(75);
+        // CheckBoxes
         CheckBox bubbleCheckBox = new CheckBox("BubbleSort");
         CheckBox mergeCheckBox = new CheckBox("MergeSort");
         CheckBox quickCheckBox = new CheckBox("QuickSort");
@@ -50,27 +52,28 @@ public class GUI extends Application{
         gridPane.setPadding(new Insets(10,10,10,10));
         //setting vert and horiz gaps between columns
         gridPane.setVgap(5);
-        gridPane.setHgap(5);
+        gridPane.setHgap(20);
 
         //set grid alignment
         gridPane.setAlignment(Pos.CENTER);
 
-        //arranging buttons onto grid nodes
-        gridPane.add(buttonDone, 1,10);
-//        gridPane.add(buttonMerge,1,0);
-//        gridPane.add(buttonQuick,2,0);
+        //arranging Check Boxes onto grid nodes
+        gridPane.add(buttonDone, 1,1);
+        gridPane.add(buttonAgain,1, 3);
+        gridPane.add(arrayTextField, 1, 5);
         gridPane.add(bubbleCheckBox,0, 0);
         gridPane.add(mergeCheckBox,0, 1);
         gridPane.add(quickCheckBox,0, 2);
-        gridPane.add(selectionCheckBox,2, 0);
-        gridPane.add(insertionCheckBox,2, 1);
-        gridPane.add(binaryCheckBox,2, 2);
-//        gridPane.add(buttonChoiceBox,3,0);
+        gridPane.add(selectionCheckBox,0, 3);
+        gridPane.add(insertionCheckBox,0, 4);
+        gridPane.add(binaryCheckBox,0, 5);
+
 
         //button styling
         buttonDone.setStyle("-fx-background-color: darkslateblue; -fx-text-fill: white;");
-//        buttonQuick.setStyle("-fx-background-color: darkslateblue; -fx-text-fill: white;");
-//        buttonMerge.setStyle("-fx-background-color: darkslateblue; -fx-text-fill: white;");
+        buttonAgain.setStyle("-fx-background-color: darkslateblue; -fx-text-fill: white;");
+        //arrayTextField.setStyle("-fx-background-color: darkslateblue; -fx-text-fill: white;");
+//        arrayTextField.se
 
         //pane styling
         gridPane.setStyle("-fx-background-color: BEIGE;");
