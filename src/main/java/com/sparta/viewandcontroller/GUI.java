@@ -24,18 +24,6 @@ import java.util.EventListener;
 public class GUI extends Application{
 
 
-    private Button buttonDone;
-    private Button buttonAgain;
-
-    private CheckBox bubbleCheckBox;
-    private CheckBox mergeCheckBox;
-    private CheckBox quickCheckBox;
-    private CheckBox binaryCheckBox;
-    private CheckBox insertionCheckBox;
-    private CheckBox selectionCheckBox;
-
-    private TextField arrayTextField;
-
     public static void guiRun(String[] args) {
         launch();
     }
@@ -54,23 +42,35 @@ public class GUI extends Application{
 
         TextField arrayTextField = new TextField("Array Size?");
 
-
+        // set widths of buttons and text field so they are the same
         buttonDone.setPrefWidth(75);
         buttonAgain.setPrefWidth(75);
         arrayTextField.setPrefWidth(75);
 
-//        arrayTextField.setOnAction(new EventHandler<ActionEvent>() {
-//            @Override
-//            public void handle(ActionEvent actionEvent) {
-//
-//            }
-//        });
+        //-------------------------------------------------------------------------
+        //Event handling
+        //-------------------------------------------------------------------------
+        arrayTextField.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                String s = arrayTextField.getText();;
+                int arraySize = 0;
+                try{
+                    arraySize = Integer.parseInt(s);
+                    System.out.println(arraySize); // <------------------------------------------------------------------this is what I want to connect to the array gen 
+                } catch(Exception e){
+                    System.err.println("Not a valid int");
+                }
+            }
+        });
+
         buttonDone.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
                 System.exit(0);
             }
         });
+
         buttonAgain.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
