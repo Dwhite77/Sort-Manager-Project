@@ -65,6 +65,7 @@ public class SortManager {
             end = nanoTime();
             System.out.println("Type of sort used: " + theFactory.toString());
             System.out.println("Elapsed Time: " + (end - start));
+
             }
         }
     }

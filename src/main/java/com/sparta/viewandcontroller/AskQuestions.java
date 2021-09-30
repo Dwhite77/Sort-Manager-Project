@@ -28,7 +28,7 @@ public class AskQuestions {
             System.out.println("Do you want to do another sort?");
             String again = scn.next();
 
-            if(again.equals("yes") || again.equals("y")){
+            if(again.equals("yes") || again.equals("y") || again.equals("Y") || again.equals("Yes")){
                 askQuestions();
             }
             else System.exit(0);

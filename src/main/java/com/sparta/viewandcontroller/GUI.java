@@ -35,6 +35,12 @@ public class GUI extends Application{
         CheckBox bubbleCheckBox = new CheckBox("BubbleSort");
         CheckBox mergeCheckBox = new CheckBox("MergeSort");
         CheckBox quickCheckBox = new CheckBox("QuickSort");
+        CheckBox binaryCheckBox = new CheckBox("BinaryTreeSort");
+        CheckBox insertionCheckBox = new CheckBox("InsertionSort");
+        CheckBox selectionCheckBox = new CheckBox("SelectionSort");
+
+        //Comparison CheckBoxes
+
 
         //creating pane object
         GridPane gridPane = new GridPane();
@@ -50,12 +56,15 @@ public class GUI extends Application{
         gridPane.setAlignment(Pos.CENTER);
 
         //arranging buttons onto grid nodes
-        gridPane.add(buttonDone, 0,10);
+        gridPane.add(buttonDone, 1,10);
 //        gridPane.add(buttonMerge,1,0);
 //        gridPane.add(buttonQuick,2,0);
         gridPane.add(bubbleCheckBox,0, 0);
         gridPane.add(mergeCheckBox,0, 1);
         gridPane.add(quickCheckBox,0, 2);
+        gridPane.add(selectionCheckBox,2, 0);
+        gridPane.add(insertionCheckBox,2, 1);
+        gridPane.add(binaryCheckBox,2, 2);
 //        gridPane.add(buttonChoiceBox,3,0);
 
         //button styling
