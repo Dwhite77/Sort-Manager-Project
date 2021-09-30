@@ -16,7 +16,7 @@ public class LoggingMain {
         LoggingMain.logger = logger;
     }
 
-//    public static void main(String[] args) {
+
 //        PropertyConfigurator.configure("log4j.properties");
 //        logger.warn("Warning Message");
 //        logger.trace("Trace Message");
@@ -24,5 +24,5 @@ public class LoggingMain {
 //        logger.error("Error Message");
 //        logger.debug("Debug Message");
 //        logger.fatal("Fatal Message");
-//    }
+
 }
