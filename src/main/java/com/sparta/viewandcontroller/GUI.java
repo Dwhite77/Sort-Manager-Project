@@ -2,22 +2,39 @@ package com.sparta.viewandcontroller;
 
 import javafx.application.Application;
 import static javafx.application.Application.launch;
+
+import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+
+import java.util.EventListener;
 //----------------------------------------------------------------------------------------------
 //  GUI stuff
 //----------------------------------------------------------------------------------------------
 
 public class GUI extends Application{
+
+
+    private Button buttonDone;
+    private Button buttonAgain;
+
+    private CheckBox bubbleCheckBox;
+    private CheckBox mergeCheckBox;
+    private CheckBox quickCheckBox;
+    private CheckBox binaryCheckBox;
+    private CheckBox insertionCheckBox;
+    private CheckBox selectionCheckBox;
+
+    private TextField arrayTextField;
 
     public static void guiRun(String[] args) {
         launch();
@@ -25,15 +42,9 @@ public class GUI extends Application{
     @Override
     public void start(Stage primaryStage){
 
-        //buttons
         Button buttonDone = new Button("Done");
-        buttonDone.setPrefWidth(75);
         Button buttonAgain = new Button("Again?");
-        buttonAgain.setPrefWidth(75);
 
-        TextField arrayTextField = new TextField("Array Size?");
-        arrayTextField.setPrefWidth(75);
-        // CheckBoxes
         CheckBox bubbleCheckBox = new CheckBox("BubbleSort");
         CheckBox mergeCheckBox = new CheckBox("MergeSort");
         CheckBox quickCheckBox = new CheckBox("QuickSort");
@@ -41,8 +52,31 @@ public class GUI extends Application{
         CheckBox insertionCheckBox = new CheckBox("InsertionSort");
         CheckBox selectionCheckBox = new CheckBox("SelectionSort");
 
-        //Comparison CheckBoxes
+        TextField arrayTextField = new TextField("Array Size?");
 
+
+        buttonDone.setPrefWidth(75);
+        buttonAgain.setPrefWidth(75);
+        arrayTextField.setPrefWidth(75);
+
+//        arrayTextField.setOnAction(new EventHandler<ActionEvent>() {
+//            @Override
+//            public void handle(ActionEvent actionEvent) {
+//
+//            }
+//        });
+        buttonDone.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                System.out.println("Done");
+            }
+        });
+        buttonAgain.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                System.out.println("Again");
+            }
+        });
 
         //creating pane object
         GridPane gridPane = new GridPane();
@@ -78,6 +112,8 @@ public class GUI extends Application{
         //pane styling
         gridPane.setStyle("-fx-background-color: BEIGE;");
 
+
+
         //creating a scene object
         Scene scene = new Scene(gridPane);
 
@@ -88,6 +124,5 @@ public class GUI extends Application{
         primaryStage.show();
 
     }
-
 
 }
