@@ -1,6 +1,7 @@
 package com.sparta.viewandcontroller;
 
 import com.sparta.logging.LoggingMain;
+import com.sparta.model.SortFactory;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
 
@@ -18,6 +19,7 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import org.apache.log4j.Logger;
 
+import java.util.ArrayList;
 import java.util.EventListener;
 //----------------------------------------------------------------------------------------------
 //  GUI stuff
@@ -51,7 +53,13 @@ public class GUI extends Application{
         // set widths of buttons and text field, so they are the same
         buttonExit.setPrefWidth(buttonWidth);
         buttonAgain.setPrefWidth(buttonWidth);
+        buttonSort.setPrefWidth(buttonWidth);
+        buttonStyle.setPrefWidth(buttonWidth);
         arrayTextField.setPrefWidth(buttonWidth);
+
+
+        //creating pane object
+        GridPane gridPane = new GridPane();
 
         //-------------------------------------------------------------------------
         //Event handling
@@ -71,8 +79,9 @@ public class GUI extends Application{
                 }
             }
         });
-        //creating pane object
-        GridPane gridPane = new GridPane();
+
+
+
         buttonExit.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
@@ -85,6 +94,28 @@ public class GUI extends Application{
             @Override
             public void handle(ActionEvent actionEvent) {
                 // i want this to begin the sorting, i also want it to disable the style button, to prevent both the askquestions being run as well as the new method that I implement
+                // either needs to be disabled if there is no int input or throw an exception.
+                // when things are disabled I want their style to change so that they are obviously grayed out
+                
+                ArrayList<SortFactory> sortFactories = new ArrayList<SortFactory>();
+
+                if(bubbleCheckBox.isSelected()){
+
+                }
+
+                if(mergeCheckBox.isSelected()){
+
+                }
+
+                if(binaryCheckBox.isSelected()){
+
+                }
+
+                if(quickCheckBox.isSelected()){
+
+                }
+
+
             }
         });
 
@@ -115,9 +146,9 @@ public class GUI extends Application{
         gridPane.setAlignment(Pos.CENTER);
 
         //arranging Check Boxes onto grid nodes
-        gridPane.add(buttonExit, 1,1);
-        gridPane.add(buttonAgain,1, 3);
-        gridPane.add(buttonSort,2,1);
+        gridPane.add(buttonExit, 2,5);
+        gridPane.add(buttonAgain,2, 1);
+        gridPane.add(buttonSort,1,1);
         gridPane.add(buttonStyle,2,3);
         gridPane.add(arrayTextField, 1, 5);
 
@@ -130,13 +161,15 @@ public class GUI extends Application{
 
 
         //button styling
-        buttonExit.setStyle("-fx-background-color: darkslateblue; -fx-text-fill: white;");
-        buttonAgain.setStyle("-fx-background-color: darkslateblue; -fx-text-fill: white;");
-        //arrayTextField.setStyle("-fx-background-color: darkslateblue; -fx-text-fill: white;");
+        buttonExit.setStyle("-fx-background-color: firebrick; -fx-text-fill: white;");
+        buttonAgain.setStyle("-fx-background-color: firebrick; -fx-text-fill: white;");
+        buttonStyle.setStyle("-fx-background-color: firebrick; -fx-text-fill: white;");
+        buttonSort.setStyle("-fx-background-color: firebrick; -fx-text-fill: white;");
+
 //        arrayTextField.se
 
         //pane styling
-        gridPane.setStyle("-fx-background-color: BEIGE;");
+        gridPane.setStyle("-fx-background-color: mistyrose;");
 
 
 
