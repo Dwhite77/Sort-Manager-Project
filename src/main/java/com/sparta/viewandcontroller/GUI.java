@@ -95,7 +95,6 @@ public class GUI extends Application{
                 int arraySize = 0;
                 try{
                     arraySize = Integer.parseInt(s);
-                    System.out.println(arraySize); // <------------------------------------------------------------------this is what I want to connect to the array gen
                 } catch(Exception e){
                     System.err.println("Not a valid int");
                     log.error("User didn't select a valid int");
@@ -127,8 +126,8 @@ public class GUI extends Application{
                 }
 
                 if(insertionCheckBox.isSelected()){
-                    System.err.println("Insertion Sort is not currently implemented");
-                    log.info("User tried to select Insertion Sort");
+                    InsertionSort iSort = new InsertionSort();
+                    sortFactories.add(iSort);
                 }
 
                 if(sortFactories.isEmpty()){
@@ -147,8 +146,6 @@ public class GUI extends Application{
                             sortFactories.get(i).printArray(myArr);
                         }
                         System.out.println(sortFactories.get(i).toString()+": "+sortFactories.get(i).getCompletionTime());
-
-
                     }
                 }
 
@@ -185,16 +182,17 @@ public class GUI extends Application{
         //arranging Check Boxes onto grid nodes
         gridPane.add(buttonExit, 2,3);
 //        gridPane.add(buttonAgain,2, 1);
-        gridPane.add(buttonSort,1,1);
+        gridPane.add(buttonSort,2,2);
         gridPane.add(buttonStyle,2,1);
-        gridPane.add(arrayTextField, 1, 3);
 
-        gridPane.add(bubbleCheckBox,0, 0);
-        gridPane.add(mergeCheckBox,0, 1);
-        gridPane.add(quickCheckBox,0, 2);
-        gridPane.add(selectionCheckBox,0, 3);
-        gridPane.add(insertionCheckBox,0, 4);
-        gridPane.add(binaryCheckBox,0, 5);
+        gridPane.add(arrayTextField, 1, 4);
+
+        gridPane.add(bubbleCheckBox,0, 1);
+        gridPane.add(mergeCheckBox,0, 2);
+        gridPane.add(quickCheckBox,0, 3);
+        gridPane.add(selectionCheckBox,1, 1);
+        gridPane.add(insertionCheckBox,1, 2);
+        gridPane.add(binaryCheckBox,1, 3);
 
 
         //button styling
