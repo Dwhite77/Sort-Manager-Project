@@ -2,6 +2,7 @@ package com.sparta.model;
 
 public class SelectionSort extends SuperSort{
 
+    @Override
     public int[] sort(int[] arr)
     {
         int n = arr.length;
@@ -26,6 +27,6 @@ public class SelectionSort extends SuperSort{
 
     @Override
     public String toString() {
-        return "Selection";
+        return "SelectionSort";
     }
 }

@@ -1,4 +1,4 @@
-package com.sparta.viewandcontroller;
+package com.sparta.oldviewandcontroller;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;

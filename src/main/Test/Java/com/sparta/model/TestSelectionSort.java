@@ -5,14 +5,13 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
-
-public class TestMergeSort {
+public class TestSelectionSort {
     @Test
     public void givenRandomArrayDoesSelectionSortCorrectly(){
-        MergeSort myMergeSort = new MergeSort();
+        SelectionSort mySelectionSort = new SelectionSort();
         IntArrayGenerate myArray = new IntArrayGenerate();
 
-        int[] sortedArr = myMergeSort.sort(myArray.intArrayGen(20));
+        int[] sortedArr = mySelectionSort.sort(myArray.intArrayGen(20));
         int count = 0;
         for(int i = 0; i < sortedArr.length-1; i++) {
             if (sortedArr[i] <= sortedArr[i + 1]) {
@@ -20,5 +19,6 @@ public class TestMergeSort {
             }
         }
         assertEquals(count,sortedArr.length-1);
+
     }
 }

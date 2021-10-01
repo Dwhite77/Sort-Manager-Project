@@ -2,6 +2,7 @@ package com.sparta.model;
 
 public class InsertionSort extends SuperSort{
 
+    @Override
     public int[] sort(int[] arr)
     {
         int n = arr.length;

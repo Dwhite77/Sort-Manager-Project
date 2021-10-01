@@ -1,14 +1,12 @@
-package com.sparta.newview;
+package com.sparta.newviewandcontroller;
 
 import com.sparta.logging.LoggingMain;
 import com.sparta.model.*;
-import com.sparta.viewandcontroller.AskQuestions;
-import com.sun.scenario.effect.Merge;
+import com.sparta.oldviewandcontroller.AskQuestions;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
 
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -22,7 +20,6 @@ import javafx.stage.Stage;
 import org.apache.log4j.Logger;
 
 import java.util.ArrayList;
-import java.util.EventListener;
 //----------------------------------------------------------------------------------------------
 //  GUI stuff
 //----------------------------------------------------------------------------------------------
@@ -36,10 +33,10 @@ public class GUI extends Application{
     @Override
     public void start(Stage primaryStage){
         Logger log = LoggingMain.getLogger();
-        int buttonWidth = 75;
+        int buttonWidth = 80;
 
         Button buttonExit = new Button("Exit");
-        Button buttonAgain = new Button("Again?");
+        //Button buttonAgain = new Button("Again?");
         Button buttonSort = new Button("Start Sort");
         Button buttonStyle = new Button("Old Style");
 
@@ -54,7 +51,7 @@ public class GUI extends Application{
 
         // set widths of buttons and text field, so they are the same
         buttonExit.setPrefWidth(buttonWidth);
-        buttonAgain.setPrefWidth(buttonWidth);
+        //buttonAgain.setPrefWidth(buttonWidth);
         buttonSort.setPrefWidth(buttonWidth);
         buttonStyle.setPrefWidth(buttonWidth);
         arrayTextField.setPrefWidth(buttonWidth);
@@ -66,14 +63,6 @@ public class GUI extends Application{
         //-------------------------------------------------------------------------
         //Event handling
         //-------------------------------------------------------------------------
-        arrayTextField.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-
-            }
-        });
-
-
 
         buttonExit.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -82,78 +71,73 @@ public class GUI extends Application{
             }
         });
 
-
         buttonSort.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                // i want this to begin the sorting, i also want it to disable the style button, to prevent both the askquestions being run as well as the new method that I implement
-                // either needs to be disabled if there is no int input or throw an exception.
-                // when things are disabled I want their style to change so that they are obviously grayed out
-
                 ArrayList<SortFactory> sortFactories = new ArrayList<SortFactory>();
-
                 String s = arrayTextField.getText();
                 int arraySize = 0;
                 try{
                     arraySize = Integer.parseInt(s);
+                    if(bubbleCheckBox.isSelected()){
+                        BubbleSort bubSort = new BubbleSort();
+                        sortFactories.add(bubSort);
+                    }
+
+                    if(mergeCheckBox.isSelected()){
+                        MergeSort mSort = new MergeSort();
+                        sortFactories.add(mSort);
+                    }
+
+                    if(binaryCheckBox.isSelected()){
+                        BinaryTreeSort binSort = new BinaryTreeSort();
+                        sortFactories.add(binSort);
+                    }
+
+                    if(quickCheckBox.isSelected()){
+                        QuickSort qSort = new QuickSort();
+                        sortFactories.add(qSort);
+                    }
+
+                    if(selectionCheckBox.isSelected()){
+//                    System.err.println("Selection Sort is not currently implemented"); //this is to demonstrate usage of this stuff
+//                    log.info("User tried to select Selection Sort");
+                        SelectionSort sSort = new SelectionSort();
+                        sortFactories.add(sSort);
+                    }
+
+                    if(insertionCheckBox.isSelected()){
+//                    System.err.println("Insertion Sort is not currently implemented"); //this is to demonstrate usage of this stuff
+//                    log.info("User tried to select Insertion Sort");
+                        InsertionSort iSort = new InsertionSort();
+                        sortFactories.add(iSort);
+                    }
+
+                    if(sortFactories.isEmpty()){
+                        System.err.println("No Sort type selected");
+                        log.info("User tried to start without selecting a Sort");
+                    }
+                    else{
+                        IntArrayGenerate intArray = new IntArrayGenerate();
+                        int[] myArr = intArray.intArrayGen(arraySize);
+                        for(int j=0;j<myArr.length;j++){
+                            System.out.print(myArr[j]+" ");
+                        }
+                        System.out.println();
+                        for(int i = 0; i < sortFactories.size();i++){
+                            sortFactories.get(i).setStartTime();
+                            sortFactories.get(i).sort(myArr);
+                            sortFactories.get(i).setEndTime();
+                            if(i==0){
+                                sortFactories.get(i).printArray(myArr);
+                            }
+                            System.out.println(sortFactories.get(i).toString()+": "+sortFactories.get(i).getCompletionTime());
+                        }
+                    }
                 } catch(Exception e){
                     System.err.println("Not a valid int");
                     log.error("User didn't select a valid int");
                 }
-
-                if(bubbleCheckBox.isSelected()){
-                    BubbleSort bubSort = new BubbleSort();
-                    sortFactories.add(bubSort);
-                }
-
-                if(mergeCheckBox.isSelected()){
-                    MergeSort mSort = new MergeSort();
-                    sortFactories.add(mSort);
-                }
-
-                if(binaryCheckBox.isSelected()){
-                    BinaryTreeSort binSort = new BinaryTreeSort();
-                    sortFactories.add(binSort);
-                }
-
-                if(quickCheckBox.isSelected()){
-                    QuickSort qSort = new QuickSort();
-                    sortFactories.add(qSort);
-                }
-
-                if(selectionCheckBox.isSelected()){
-//                    System.err.println("Selection Sort is not currently implemented"); //this is to demonstrate usage of this stuff
-//                    log.info("User tried to select Selection Sort");
-                    SelectionSort sSort = new SelectionSort();
-                    sortFactories.add(sSort);
-                }
-
-                if(insertionCheckBox.isSelected()){
-//                    System.err.println("Insertion Sort is not currently implemented"); //this is to demonstrate usage of this stuff
-//                    log.info("User tried to select Insertion Sort");
-                    InsertionSort iSort = new InsertionSort();
-                    sortFactories.add(iSort);
-                }
-
-                if(sortFactories.isEmpty()){
-                    System.err.println("No Sort type selected");
-                    log.info("User tried to start without selecting a Sort");
-                }
-                else{
-                    IntArrayGenerate intArray = new IntArrayGenerate();
-                    int[] myArr = intArray.intArrayGen(arraySize);
-
-                    for(int i = 0; i < sortFactories.size();i++){
-                        sortFactories.get(i).setStartTime();
-                        sortFactories.get(i).sort(myArr);
-                        sortFactories.get(i).setEndTime();
-                        if(i==0){
-                            sortFactories.get(i).printArray(myArr);
-                        }
-                        System.out.println(sortFactories.get(i).toString()+": "+sortFactories.get(i).getCompletionTime());
-                    }
-                }
-
 
             }
         });
@@ -185,10 +169,10 @@ public class GUI extends Application{
         gridPane.setAlignment(Pos.CENTER);
 
         //arranging Check Boxes onto grid nodes
-        gridPane.add(buttonExit, 2,3);
+        gridPane.add(buttonExit, 2,4);
 //        gridPane.add(buttonAgain,2, 1);
         gridPane.add(buttonSort,2,2);
-        gridPane.add(buttonStyle,2,1);
+        gridPane.add(buttonStyle,0,4);
 
         gridPane.add(arrayTextField, 1, 4);
 
@@ -202,7 +186,7 @@ public class GUI extends Application{
 
         //button styling
         buttonExit.setStyle("-fx-background-color: firebrick; -fx-text-fill: white;");
-        buttonAgain.setStyle("-fx-background-color: firebrick; -fx-text-fill: white;");
+        //buttonAgain.setStyle("-fx-background-color: firebrick; -fx-text-fill: white;");
         buttonStyle.setStyle("-fx-background-color: firebrick; -fx-text-fill: white;");
         buttonSort.setStyle("-fx-background-color: firebrick; -fx-text-fill: white;");
 
