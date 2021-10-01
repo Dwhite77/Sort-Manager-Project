@@ -48,6 +48,12 @@ public class SortManager {
                 case "Binary", "binary", "bin", "Bin", "BinarySort", "BinaryTree", "BinaryTreeSort" , "binarytreesort", "binarysort", "binarytree":
                     theFactory = new BinaryTreeSort();
                     break;
+                case "selection","Selection","s","S":
+                    theFactory = new SelectionSort();
+                    break;
+                case "Insertion","insertion","i","I":
+                    theFactory = new InsertionSort();
+                    break;
                 default:
                     theFactory = null;
                     break;

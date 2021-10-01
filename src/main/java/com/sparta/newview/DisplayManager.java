@@ -1,5 +1,7 @@
-package com.sparta.viewandcontroller;
+package com.sparta.newview;
 
+
+import com.sparta.newview.GUI;
 
 import static javafx.application.Application.launch;
 

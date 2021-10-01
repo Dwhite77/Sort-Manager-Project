@@ -1,7 +1,8 @@
-package com.sparta.viewandcontroller;
+package com.sparta.newview;
 
 import com.sparta.logging.LoggingMain;
 import com.sparta.model.*;
+import com.sparta.viewandcontroller.AskQuestions;
 import com.sun.scenario.effect.Merge;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
@@ -121,11 +122,15 @@ public class GUI extends Application{
                 }
 
                 if(selectionCheckBox.isSelected()){
-                    System.err.println("Selection Sort is not currently implemented");
-                    log.info("User tried to select Selection Sort");
+//                    System.err.println("Selection Sort is not currently implemented"); //this is to demonstrate usage of this stuff
+//                    log.info("User tried to select Selection Sort");
+                    SelectionSort sSort = new SelectionSort();
+                    sortFactories.add(sSort);
                 }
 
                 if(insertionCheckBox.isSelected()){
+//                    System.err.println("Insertion Sort is not currently implemented"); //this is to demonstrate usage of this stuff
+//                    log.info("User tried to select Insertion Sort");
                     InsertionSort iSort = new InsertionSort();
                     sortFactories.add(iSort);
                 }
