@@ -2,3 +2,9 @@
 [ERROR] 2021-09-29 19:56:31,182 My Application Logger  sortManager User didn't Select an actual sort
 [ERROR] 2021-09-29 20:02:18,640 My Application Logger sortManager User didn't Select an actual sort
 [ERROR] 2021-10-01 13:03:17,961 My Application Logger sortManager User didn't Select an actual sort
+[ERROR] 2021-10-01 13:40:46,360 My Application Logger handle User didn't select a valid int
+[ERROR] 2021-10-01 13:45:16,663 My Application Logger handle User didn't select a valid int
+[ERROR] 2021-10-01 13:46:04,613 My Application Logger handle User didn't select a valid int
+[ERROR] 2021-10-01 13:55:51,834 My Application Logger handle User didn't select a valid int
+[ERROR] 2021-10-01 13:57:34,801 My Application Logger handle User didn't select a valid int
+[ERROR] 2021-10-01 14:15:56,791 My Application Logger handle User didn't select a valid int

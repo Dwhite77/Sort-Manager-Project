@@ -1,7 +1,8 @@
 package com.sparta.viewandcontroller;
 
 import com.sparta.logging.LoggingMain;
-import com.sparta.model.SortFactory;
+import com.sparta.model.*;
+import com.sun.scenario.effect.Merge;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
 
@@ -33,7 +34,7 @@ public class GUI extends Application{
 
     @Override
     public void start(Stage primaryStage){
-
+        Logger log = LoggingMain.getLogger();
         int buttonWidth = 75;
 
         Button buttonExit = new Button("Exit");
@@ -67,16 +68,7 @@ public class GUI extends Application{
         arrayTextField.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                String s = arrayTextField.getText();;
-                int arraySize = 0;
-                try{
-                    arraySize = Integer.parseInt(s);
-                    System.out.println(arraySize); // <------------------------------------------------------------------this is what I want to connect to the array gen
-                } catch(Exception e){
-                    System.err.println("Not a valid int");
-                    Logger log = LoggingMain.getLogger();
-                    log.error("User didn't select a valid int");
-                }
+
             }
         });
 
@@ -96,35 +88,80 @@ public class GUI extends Application{
                 // i want this to begin the sorting, i also want it to disable the style button, to prevent both the askquestions being run as well as the new method that I implement
                 // either needs to be disabled if there is no int input or throw an exception.
                 // when things are disabled I want their style to change so that they are obviously grayed out
-                
+
                 ArrayList<SortFactory> sortFactories = new ArrayList<SortFactory>();
 
-                if(bubbleCheckBox.isSelected()){
+                String s = arrayTextField.getText();
+                int arraySize = 0;
+                try{
+                    arraySize = Integer.parseInt(s);
+                    System.out.println(arraySize); // <------------------------------------------------------------------this is what I want to connect to the array gen
+                } catch(Exception e){
+                    System.err.println("Not a valid int");
+                    log.error("User didn't select a valid int");
+                }
 
+                if(bubbleCheckBox.isSelected()){
+                    BubbleSort bubSort = new BubbleSort();
+                    sortFactories.add(bubSort);
                 }
 
                 if(mergeCheckBox.isSelected()){
-
+                    MergeSort mSort = new MergeSort();
+                    sortFactories.add(mSort);
                 }
 
                 if(binaryCheckBox.isSelected()){
-
+                    BinaryTreeSort binSort = new BinaryTreeSort();
+                    sortFactories.add(binSort);
                 }
 
                 if(quickCheckBox.isSelected()){
+                    QuickSort qSort = new QuickSort();
+                    sortFactories.add(qSort);
+                }
 
+                if(selectionCheckBox.isSelected()){
+                    System.err.println("Selection Sort is not currently implemented");
+                    log.info("User tried to select Selection Sort");
+                }
+
+                if(insertionCheckBox.isSelected()){
+                    System.err.println("Insertion Sort is not currently implemented");
+                    log.info("User tried to select Insertion Sort");
+                }
+
+                if(sortFactories.isEmpty()){
+                    System.err.println("No Sort type selected");
+                    log.info("User tried to start without selecting a Sort");
+                }
+                else{
+                    IntArrayGenerate intArray = new IntArrayGenerate();
+                    int[] myArr = intArray.intArrayGen(arraySize);
+
+                    for(int i = 0; i < sortFactories.size();i++){
+                        sortFactories.get(i).setStartTime();
+                        sortFactories.get(i).sort(myArr);
+                        sortFactories.get(i).setEndTime();
+                        if(i==0){
+                            sortFactories.get(i).printArray(myArr);
+                        }
+                        System.out.println(sortFactories.get(i).toString()+": "+sortFactories.get(i).getCompletionTime());
+
+
+                    }
                 }
 
 
             }
         });
 
-        buttonAgain.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                System.out.println("Again");
-            }
-        });
+//        buttonAgain.setOnAction(new EventHandler<ActionEvent>() {
+//            @Override
+//            public void handle(ActionEvent actionEvent) {
+//                System.out.println("Again");
+//            }
+//        });
         // array of sorters that is populated from the gui selections when the go button is pressed
         // checkboxes are checked to see if they are in the ticked or not ticked state, if they are ticked then they are added to an array of sorts, where the int array size input is then fed into them.
         // once the int array size is fed in, we can change the gui to be an output screen where it compares the times of the sort types
@@ -146,11 +183,11 @@ public class GUI extends Application{
         gridPane.setAlignment(Pos.CENTER);
 
         //arranging Check Boxes onto grid nodes
-        gridPane.add(buttonExit, 2,5);
-        gridPane.add(buttonAgain,2, 1);
+        gridPane.add(buttonExit, 2,3);
+//        gridPane.add(buttonAgain,2, 1);
         gridPane.add(buttonSort,1,1);
-        gridPane.add(buttonStyle,2,3);
-        gridPane.add(arrayTextField, 1, 5);
+        gridPane.add(buttonStyle,2,1);
+        gridPane.add(arrayTextField, 1, 3);
 
         gridPane.add(bubbleCheckBox,0, 0);
         gridPane.add(mergeCheckBox,0, 1);

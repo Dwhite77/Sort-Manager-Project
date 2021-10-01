@@ -106,5 +106,10 @@ public class BinaryTreeSort extends SuperSort{
 //        else return false;
 //    }
 
+
+    @Override
+    public String toString() {
+        return "BinaryTreeSort";
+    }
 }
 
