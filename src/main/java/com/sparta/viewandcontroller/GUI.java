@@ -34,8 +34,10 @@ public class GUI extends Application{
 
         int buttonWidth = 75;
 
-        Button buttonDone = new Button("Done");
+        Button buttonExit = new Button("Exit");
         Button buttonAgain = new Button("Again?");
+        Button buttonSort = new Button("Start Sort");
+        Button buttonStyle = new Button("Old Style");
 
         CheckBox bubbleCheckBox = new CheckBox("BubbleSort");
         CheckBox mergeCheckBox = new CheckBox("MergeSort");
@@ -47,7 +49,7 @@ public class GUI extends Application{
         TextField arrayTextField = new TextField("Array Size?");
 
         // set widths of buttons and text field, so they are the same
-        buttonDone.setPrefWidth(buttonWidth);
+        buttonExit.setPrefWidth(buttonWidth);
         buttonAgain.setPrefWidth(buttonWidth);
         arrayTextField.setPrefWidth(buttonWidth);
 
@@ -69,11 +71,20 @@ public class GUI extends Application{
                 }
             }
         });
-
-        buttonDone.setOnAction(new EventHandler<ActionEvent>() {
+        //creating pane object
+        GridPane gridPane = new GridPane();
+        buttonExit.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
                 System.exit(0);
+            }
+        });
+
+
+        buttonSort.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                // i want this to begin the sorting, i also want it to disable the style button, to prevent both the askquestions being run as well as the new method that I implement
             }
         });
 
@@ -83,9 +94,15 @@ public class GUI extends Application{
                 System.out.println("Again");
             }
         });
+        // array of sorters that is populated from the gui selections when the go button is pressed
+        // checkboxes are checked to see if they are in the ticked or not ticked state, if they are ticked then they are added to an array of sorts, where the int array size input is then fed into them.
+        // once the int array size is fed in, we can change the gui to be an output screen where it compares the times of the sort types
 
-        //creating pane object
-        GridPane gridPane = new GridPane();
+
+        //-------------------------------------------------------------------------
+        //Grid creation
+        //-------------------------------------------------------------------------
+
         //size of the pane
         gridPane.setMinSize(400,200);
         //setting the border
@@ -98,9 +115,12 @@ public class GUI extends Application{
         gridPane.setAlignment(Pos.CENTER);
 
         //arranging Check Boxes onto grid nodes
-        gridPane.add(buttonDone, 1,1);
+        gridPane.add(buttonExit, 1,1);
         gridPane.add(buttonAgain,1, 3);
+        gridPane.add(buttonSort,2,1);
+        gridPane.add(buttonStyle,2,3);
         gridPane.add(arrayTextField, 1, 5);
+
         gridPane.add(bubbleCheckBox,0, 0);
         gridPane.add(mergeCheckBox,0, 1);
         gridPane.add(quickCheckBox,0, 2);
@@ -110,7 +130,7 @@ public class GUI extends Application{
 
 
         //button styling
-        buttonDone.setStyle("-fx-background-color: darkslateblue; -fx-text-fill: white;");
+        buttonExit.setStyle("-fx-background-color: darkslateblue; -fx-text-fill: white;");
         buttonAgain.setStyle("-fx-background-color: darkslateblue; -fx-text-fill: white;");
         //arrayTextField.setStyle("-fx-background-color: darkslateblue; -fx-text-fill: white;");
 //        arrayTextField.se
@@ -123,11 +143,23 @@ public class GUI extends Application{
         //creating a scene object
         Scene scene = new Scene(gridPane);
 
+
+
+
         //window title
         primaryStage.setTitle("Sort Choice GUI");
 
         primaryStage.setScene(scene);
         primaryStage.show();
+
+        buttonStyle.setOnAction(new EventHandler<ActionEvent>() {       // this allows for the full functionality of the old system, whilst maintaining the ability to work on the gui version,
+                                                                        // so if its uncompleted I can throw errors and say its uncompleted but also show off the wokring version wihtout a gui
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                primaryStage.hide();
+                AskQuestions.askQuestions();
+            }
+        });
 
     }
 

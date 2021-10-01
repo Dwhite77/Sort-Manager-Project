@@ -7,10 +7,11 @@ public class DisplayManager{
     public static void main(String[] args) {
 
 
-        GUI gui = new GUI(); // if you're not doing anything with gui then turn this off
-        gui.guiRun(args);
+//        GUI gui = new GUI(); // if you're not doing anything with gui then turn this off
+//        gui.guiRun(args);
 
-        AskQuestions.askQuestions();
+        GUI.guiRun(args);
+        //AskQuestions.askQuestions();
 
 
 
