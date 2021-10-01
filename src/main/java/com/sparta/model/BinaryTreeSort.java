@@ -70,8 +70,6 @@ public class BinaryTreeSort extends SuperSort{
         return finArr;
     }
 
-
-
     public static String inOrderTreeTraversal(TreeNode root){
         if(root ==null){
             return "";
@@ -83,7 +81,23 @@ public class BinaryTreeSort extends SuperSort{
 
     }
 
-//    public static boolean isPerfectBinaryTree(int count) { // this completely breaks it dont both using perfect binary tree, we just want it to order
+    public static TreeNode add(TreeNode root, int value) {
+
+        if(root == null){
+            TreeNode n = new TreeNode(value);
+            return n;
+        }
+
+        if(value < root.getValue()){
+            root.leftNode = add(root.leftNode,value);
+        }
+        if(value >= root.getValue()){
+            root.rightNode = add(root.rightNode,value);// this might not be normal for a binary tree, but what's important here is that we are using the binary tree method to SORT A LIST OF INTS which is what mine does, its also what the visualiser does
+        }
+        return root;
+    }
+
+    //    public static boolean isPerfectBinaryTree(int count) { // this completely breaks it dont both using perfect binary tree, we just want it to order
 //        count++;
 //        while(count%2 ==0)
 //            count = count/2;
@@ -92,25 +106,5 @@ public class BinaryTreeSort extends SuperSort{
 //        else return false;
 //    }
 
-
-
-    public static TreeNode add(TreeNode root, int value) {
-
-        if(root == null){
-            TreeNode n = new TreeNode(value);
-            return n;
-        }
-
-        if(value <= root.getValue()){
-            root.leftNode = add(root.leftNode,value);
-        }
-        if(value > root.getValue()){
-            root.rightNode = add(root.rightNode,value);
-        }
-
-        return root;
-
-
-    }
 }
 
