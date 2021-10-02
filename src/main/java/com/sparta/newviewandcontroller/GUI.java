@@ -39,11 +39,12 @@ public class GUI extends Application{
 
     @Override
     public void start(Stage primaryStage){
+
         Logger log = LoggingMain.getLogger();
+
         int buttonWidth = 80;
 
         Button buttonExit = new Button("Exit");
-        //Button buttonResetData = new Button("Reset Data");
         Button buttonSort = new Button("Start Sort");
         Button buttonStyle = new Button("Old Style");
 
@@ -53,8 +54,6 @@ public class GUI extends Application{
         CheckBox binaryCheckBox = new CheckBox("BinaryTreeSort");
         CheckBox insertionCheckBox = new CheckBox("InsertionSort");
         CheckBox selectionCheckBox = new CheckBox("SelectionSort");
-
-
         CheckBox standardArraySortCheckBox = new CheckBox("Lib Array");
         CheckBox standardCollectionsSortCheckBox = new CheckBox("Lib Collections");
         CheckBox standardArrayParallelSortCheckBox = new CheckBox("Lib Array Parallel");
@@ -68,15 +67,15 @@ public class GUI extends Application{
         Text textSLCS = new Text();
         Text textSLAS = new Text();
         Text textSLAPS = new Text();
-
+        Text textRandNums = new Text();
+        Text textSortedNums = new Text();
 
         TextField arrayTextField = new TextField("Array Size?");
 
         // set widths of buttons and text field, so they are the same
         buttonExit.setPrefWidth(buttonWidth);
-        //buttonResetData.setPrefWidth(buttonWidth);
         buttonSort.setPrefWidth(buttonWidth);
-        buttonSort.setPrefHeight(50);
+        buttonSort.setPrefHeight(35);
         buttonStyle.setPrefWidth(buttonWidth);
         arrayTextField.setPrefWidth(buttonWidth);
 
@@ -89,23 +88,17 @@ public class GUI extends Application{
         yAxis.setLabel("Time Taken");
 
         BarChart barChart = new BarChart(yAxis, xAxis);
-        //barChart.setPrefHeight(800);
         XYChart.Series dataSeries1 = new XYChart.Series();
         dataSeries1.setName("Run 1");
         barChart.setAnimated(false); // unfortunately these animations are really buggy and therefore to get the GUI to function correctly I have to disable this
 
         ArrayList<Text> textOutputs = new ArrayList<Text>();
-        //---------------------------------------------------------------------------------------------------
 
-        //creating pane object
         GridPane gridPane = new GridPane();
 
         //-------------------------------------------------------------------------
         //Event handling
         //-------------------------------------------------------------------------
-
-
-
         buttonExit.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
@@ -116,6 +109,9 @@ public class GUI extends Application{
         buttonSort.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
+                //---------------------------------------------------------------------
+                //resets the values and bar chart
+                //---------------------------------------------------------------------
                 barChart.getData().clear();
                 dataSeries1.getData().clear();
                 textBub.setText(" ");
@@ -127,6 +123,8 @@ public class GUI extends Application{
                 textSLCS.setText(" ");
                 textSLAS.setText(" ");
                 textSLAPS.setText(" ");
+                textRandNums.setText(" ");
+                textSortedNums.setText(" ");
 
 
                 ArrayList<SortFactory> sortFactories = new ArrayList<SortFactory>();
@@ -137,7 +135,9 @@ public class GUI extends Application{
                 try{
                     textOutputs.clear();
                     arraySize = Integer.parseInt(s);
-
+                    //---------------------------------------------------------------------
+                    //check box checkers
+                    //---------------------------------------------------------------------
                     if(bubbleCheckBox.isSelected()){
                         BubbleSort bubSort = new BubbleSort();
                         sortFactories.add(bubSort);
@@ -197,33 +197,38 @@ public class GUI extends Application{
                         log.info("User tried to start without selecting a Sort");
                     }
                     else{
-
+                        //---------------------------------------------------------------------
+                        //random array generation
+                        //---------------------------------------------------------------------
                         IntArrayGenerate intArray = new IntArrayGenerate();
                         int[] myArr = intArray.intArrayGen(arraySize);
 
+                        String strOutRand = "";
                         for(int j=0;j<myArr.length;j++){
-                            System.out.print(myArr[j]+" ");
+                            strOutRand += myArr[j]+" ";
                         }
+
+                        System.out.print("Random Array: " + strOutRand);
+                        if(myArr.length <= 100){
+                            textRandNums.setText("Random Array: " + strOutRand);
+                        }
+
                         System.out.println();
                         for(int i = 0; i < sortFactories.size();i++){
                             int[] tempArr = myArr.clone();
                             sortFactories.get(i).sort(tempArr);
                             if(i==0){
                                 sortFactories.get(i).printArray(sortFactories.get(i).sort(tempArr));
+                                if(myArr.length <= 100) {
+                                    textSortedNums.setText("Sorted Array:    " + sortFactories.get(i).arrayString(sortFactories.get(i).sort(tempArr)));
+                                }
                             }
-
                             textOutputs.get(i).setText(sortFactories.get(i).toString()+": "+sortFactories.get(i).getCompletionTime());
                             dataSeries1.getData().add(new XYChart.Data(sortFactories.get(i).getCompletionTime(),sortFactories.get(i).toString()));
-
                             gridPane.getChildren().remove(textOutputs.get(i));
-                            gridPane.add(textOutputs.get(i),1,i+4);
-
-
+                            gridPane.add(textOutputs.get(i),1,i+5);
                             System.out.println(sortFactories.get(i).toString()+": "+sortFactories.get(i).getCompletionTime());
-
                         }
-
-
                         gridPane.getChildren().remove(barChart);
                         gridPane.add(barChart, 2,0,5,13);
                         barChart.getData().add(dataSeries1);
@@ -245,7 +250,7 @@ public class GUI extends Application{
         //-------------------------------------------------------------------------
 
         //size of the pane
-        gridPane.setMinSize(800,400);
+        gridPane.setMinSize(900,500);
         //setting the border
         gridPane.setPadding(new Insets(10,10,10,10));
         //setting vert and horiz gaps between columns
@@ -257,11 +262,10 @@ public class GUI extends Application{
 
         //arranging Check Boxes onto grid nodes
         gridPane.add(buttonExit, 1,12,1,2);
-        gridPane.add(buttonSort,1,1,1,3);
+        gridPane.add(buttonSort,1,0,1,3);
         gridPane.add(buttonStyle,0,12,1,2);
-        //gridPane.add(buttonResetData,1,12,1,2);
 
-
+        gridPane.add(arrayTextField, 1, 3,1,2);
 
         gridPane.add(bubbleCheckBox,0, 1);
         gridPane.add(mergeCheckBox,0, 2);
@@ -269,10 +273,13 @@ public class GUI extends Application{
         gridPane.add(selectionCheckBox,0, 4);
         gridPane.add(insertionCheckBox,0, 5);
         gridPane.add(binaryCheckBox,0, 6);
-        gridPane.add(arrayTextField, 0, 7,1,2);
-        gridPane.add(standardArrayParallelSortCheckBox,0,9);
-        gridPane.add(standardArraySortCheckBox,0,10);
-        gridPane.add(standardCollectionsSortCheckBox,0,11);
+
+        gridPane.add(standardArrayParallelSortCheckBox,0,7);
+        gridPane.add(standardArraySortCheckBox,0,8);
+        gridPane.add(standardCollectionsSortCheckBox,0,9);
+
+        gridPane.add(textRandNums,0,13,5,1);
+        gridPane.add(textSortedNums,0,14,5,1);
 
         gridPane.add(barChart, 2,0,5,13);
 

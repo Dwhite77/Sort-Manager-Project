@@ -7,5 +7,7 @@ public interface SortFactory {
     void setStartTime();
     void setEndTime();
 
+    String arrayString(int[] tempArr);
+
     // every single one of the sort types implements all of these - SOLID Interface Segregation Principle - thin interface that everything implementing it uses everything in it
 }
