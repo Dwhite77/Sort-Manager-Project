@@ -43,7 +43,7 @@ public class GUI extends Application{
         int buttonWidth = 80;
 
         Button buttonExit = new Button("Exit");
-        Button buttonResetData = new Button("Reset Data");
+        //Button buttonResetData = new Button("Reset Data");
         Button buttonSort = new Button("Start Sort");
         Button buttonStyle = new Button("Old Style");
 
@@ -74,7 +74,7 @@ public class GUI extends Application{
 
         // set widths of buttons and text field, so they are the same
         buttonExit.setPrefWidth(buttonWidth);
-        buttonResetData.setPrefWidth(buttonWidth);
+        //buttonResetData.setPrefWidth(buttonWidth);
         buttonSort.setPrefWidth(buttonWidth);
         buttonSort.setPrefHeight(50);
         buttonStyle.setPrefWidth(buttonWidth);
@@ -82,16 +82,17 @@ public class GUI extends Application{
 
         //---------------------------------------------------------------------------------------------------
 
-//        CategoryAxis xAxis = new CategoryAxis();
-//        xAxis.setLabel("Sort Type");
-//
-//        NumberAxis yAxis = new NumberAxis();
-//        yAxis.setLabel("Time Taken");
+        CategoryAxis xAxis = new CategoryAxis();
+        xAxis.setLabel("Sort Type");
 
-//        BarChart barChart = new BarChart(yAxis, xAxis);
-//        //barChart.setPrefHeight(800);
-//        XYChart.Series dataSeries1 = new XYChart.Series();
-//        dataSeries1.setName("Run 1");
+        NumberAxis yAxis = new NumberAxis();
+        yAxis.setLabel("Time Taken");
+
+        BarChart barChart = new BarChart(yAxis, xAxis);
+        //barChart.setPrefHeight(800);
+        XYChart.Series dataSeries1 = new XYChart.Series();
+        dataSeries1.setName("Run 1");
+        barChart.setAnimated(false); // unfortunately these animations are really buggy and therefore to get the GUI to function correctly I have to disable this
 
         ArrayList<Text> textOutputs = new ArrayList<Text>();
         //---------------------------------------------------------------------------------------------------
@@ -115,7 +116,8 @@ public class GUI extends Application{
         buttonSort.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-
+                barChart.getData().clear();
+                dataSeries1.getData().clear();
                 textBub.setText(" ");
                 textBin.setText(" ");
                 textMerge.setText(" ");
@@ -207,18 +209,11 @@ public class GUI extends Application{
                             int[] tempArr = myArr.clone();
                             sortFactories.get(i).sort(tempArr);
                             if(i==0){
-//                                if(binaryCheckBox.isSelected()){
-                                    sortFactories.get(i).printArray(sortFactories.get(i).sort(tempArr));
-//                                }
-//                                else
-//                                    sortFactories.get(i).printArray(tempArr);
+                                sortFactories.get(i).printArray(sortFactories.get(i).sort(tempArr));
                             }
 
-
-
-
                             textOutputs.get(i).setText(sortFactories.get(i).toString()+": "+sortFactories.get(i).getCompletionTime());
-                            //dataSeries1.getData().add(new XYChart.Data(sortFactories.get(i).getCompletionTime(),sortFactories.get(i).toString()));
+                            dataSeries1.getData().add(new XYChart.Data(sortFactories.get(i).getCompletionTime(),sortFactories.get(i).toString()));
 
                             gridPane.getChildren().remove(textOutputs.get(i));
                             gridPane.add(textOutputs.get(i),1,i+4);
@@ -228,10 +223,10 @@ public class GUI extends Application{
 
                         }
 
-                        //gridPane.add(textVBox,1,4,1,6);
-                        //gridPane.getChildren().remove(barChart);
-                        //gridPane.add(barChart, 2,0,5,13);
-                        //barChart.getData().add(dataSeries1);
+
+                        gridPane.getChildren().remove(barChart);
+                        gridPane.add(barChart, 2,0,5,13);
+                        barChart.getData().add(dataSeries1);
                     }
                 } catch(Exception e){
                     //e.printStackTrace();
@@ -261,10 +256,10 @@ public class GUI extends Application{
         gridPane.setAlignment(Pos.TOP_LEFT);
 
         //arranging Check Boxes onto grid nodes
-        gridPane.add(buttonExit, 8,12,1,2);
+        gridPane.add(buttonExit, 1,12,1,2);
         gridPane.add(buttonSort,1,1,1,3);
         gridPane.add(buttonStyle,0,12,1,2);
-        gridPane.add(buttonResetData,1,12,1,2);
+        //gridPane.add(buttonResetData,1,12,1,2);
 
 
 
@@ -279,14 +274,14 @@ public class GUI extends Application{
         gridPane.add(standardArraySortCheckBox,0,10);
         gridPane.add(standardCollectionsSortCheckBox,0,11);
 
-        //gridPane.add(barChart, 2,0,5,13);
+        gridPane.add(barChart, 2,0,5,13);
 
 
         //button styling - css
         buttonExit.setStyle("-fx-background-color: firebrick; -fx-text-fill: white;");
         buttonStyle.setStyle("-fx-background-color: firebrick; -fx-text-fill: white;");
         buttonSort.setStyle("-fx-background-color: firebrick; -fx-text-fill: white;");
-        buttonResetData.setStyle("-fx-background-color: firebrick; -fx-text-fill: white;");
+        //buttonResetData.setStyle("-fx-background-color: firebrick; -fx-text-fill: white;");
 
         //pane styling - css
         gridPane.setStyle("-fx-background-color: mistyrose;");
@@ -312,18 +307,18 @@ public class GUI extends Application{
             }
         });
 
-        buttonResetData.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                /* delete all data currently in play
-                delete text boxes
-                delete bar chart
-                recreate an empty bar chart
-                */
-
-                //choiceScene.
-            }
-        });
+//        buttonResetData.setOnAction(new EventHandler<ActionEvent>() {
+//            @Override
+//            public void handle(ActionEvent actionEvent) {
+//                /* delete all data currently in play
+//                delete text boxes
+//                delete bar chart
+//                recreate an empty bar chart
+//                */
+//
+//                //choiceScene.
+//            }
+//        });
 
 
 
