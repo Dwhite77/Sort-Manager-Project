@@ -1,9 +1,71 @@
 [ERROR] 2021-09-29 19:55:05,446 My Application Logger sortManager User didn't Select an actual sort
 [ERROR] 2021-09-29 19:56:31,182 My Application Logger  sortManager User didn't Select an actual sort
 [ERROR] 2021-09-29 20:02:18,640 My Application Logger sortManager User didn't Select an actual sort
-[ERROR] 2021-09-30 11:33:17,894 My Application Logger sortManager User didn't Select a positive integer for the Array size
-[ERROR] 2021-09-30 11:38:11,355 My Application Logger sortManager User didn't Select a positive integer for the Array size
-[ERROR] 2021-09-30 11:38:52,511 My Application Logger sortManager User didn't Select a positive integer for the Array size
-[ERROR] 2021-09-30 11:39:48,902 My Application Logger sortManager User didn't Select a positive integer for the Array size
-[ERROR] 2021-09-30 13:38:41,970 My Application Logger handle User didn't select a valid int
-[ERROR] 2021-09-30 14:00:18,882 My Application Logger handle User didn't select a valid int
+[ERROR] 2021-10-01 13:03:17,961 My Application Logger sortManager User didn't Select an actual sort
+[ERROR] 2021-10-01 13:40:46,360 My Application Logger handle User didn't select a valid int
+[ERROR] 2021-10-01 13:45:16,663 My Application Logger handle User didn't select a valid int
+[ERROR] 2021-10-01 13:46:04,613 My Application Logger handle User didn't select a valid int
+[ERROR] 2021-10-01 13:55:51,834 My Application Logger handle User didn't select a valid int
+[ERROR] 2021-10-01 13:57:34,801 My Application Logger handle User didn't select a valid int
+[ERROR] 2021-10-01 14:15:56,791 My Application Logger handle User didn't select a valid int
+[ERROR] 2021-10-01 16:19:49,824 My Application Logger handle User didn't select a valid int
+[ERROR] 2021-10-01 16:19:49,881 My Application Logger handle User didn't select a valid int
+[ERROR] 2021-10-01 16:41:31,017 My Application Logger handle User didn't select a valid int
+[ERROR] 2021-10-01 16:42:54,427 My Application Logger sortManager User didn't Select an actual sort
+[ERROR] 2021-10-01 16:44:07,048 My Application Logger handle User didn't select a valid int
+[INFO] 2021-10-01 16:44:07,049 My Application Logger handle User tried to start without selecting a Sort
+[ERROR] 2021-10-01 17:11:24,553 My Application Logger sortManager User didn't Select an actual sort
+[ERROR] 2021-10-01 17:11:52,755 My Application Logger handle User didn't select a valid int
+[ERROR] 2021-10-01 17:12:40,561 My Application Logger handle User didn't select a valid int
+[ERROR] 2021-10-01 17:14:09,763 My Application Logger handle User didn't select a valid int
+[ERROR] 2021-10-01 17:14:17,378 My Application Logger handle User didn't select a valid int
+[ERROR] 2021-10-01 17:14:21,310 My Application Logger handle User didn't select a valid int
+[ERROR] 2021-10-01 17:14:25,301 My Application Logger handle User didn't select a valid int
+[INFO] 2021-10-01 17:14:40,443 My Application Logger handle User tried to start without selecting a Sort
+[INFO] 2021-10-01 17:14:41,496 My Application Logger handle User tried to start without selecting a Sort
+[ERROR] 2021-10-01 17:15:07,609 My Application Logger sortManager User didn't Select an actual sort
+[ERROR] 2021-10-02 11:45:02,348 My Application Logger handle User didn't select a valid int
+[ERROR] 2021-10-02 11:45:06,922 My Application Logger handle User didn't select a valid int
+[ERROR] 2021-10-02 11:45:12,362 My Application Logger handle User didn't select a valid int
+[ERROR] 2021-10-02 11:45:19,740 My Application Logger handle User didn't select a valid int
+[ERROR] 2021-10-02 11:45:48,696 My Application Logger handle User didn't select a valid int
+[ERROR] 2021-10-02 11:46:23,658 My Application Logger handle User didn't select a valid int
+[ERROR] 2021-10-02 11:47:55,794 My Application Logger handle User didn't select a valid int
+[ERROR] 2021-10-02 11:49:13,094 My Application Logger handle User didn't select a valid int
+[ERROR] 2021-10-02 12:08:33,680 My Application Logger handle User didn't select a valid int
+[ERROR] 2021-10-02 14:02:46,802 My Application Logger handle User didn't select a valid int
+[ERROR] 2021-10-02 14:02:49,923 My Application Logger handle User didn't select a valid int
+[ERROR] 2021-10-02 14:02:53,616 My Application Logger handle User didn't select a valid int
+[ERROR] 2021-10-02 14:02:56,529 My Application Logger handle User didn't select a valid int
+[ERROR] 2021-10-02 14:02:59,017 My Application Logger handle User didn't select a valid int
+[ERROR] 2021-10-02 14:03:05,628 My Application Logger handle User didn't select a valid int
+[ERROR] 2021-10-02 14:03:07,955 My Application Logger handle User didn't select a valid int
+[ERROR] 2021-10-02 14:03:10,904 My Application Logger handle User didn't select a valid int
+[ERROR] 2021-10-02 14:03:55,123 My Application Logger handle User didn't select a valid int
+[ERROR] 2021-10-02 14:03:57,259 My Application Logger handle User didn't select a valid int
+[ERROR] 2021-10-02 14:03:58,824 My Application Logger handle User didn't select a valid int
+[ERROR] 2021-10-02 14:04:00,071 My Application Logger handle User didn't select a valid int
+[ERROR] 2021-10-02 14:04:05,499 My Application Logger handle User didn't select a valid int
+[ERROR] 2021-10-02 14:04:18,787 My Application Logger handle User didn't select a valid int
+[ERROR] 2021-10-02 14:04:21,364 My Application Logger handle User didn't select a valid int
+[ERROR] 2021-10-02 14:05:44,995 My Application Logger handle User didn't select a valid int
+[ERROR] 2021-10-02 14:05:45,895 My Application Logger handle User didn't select a valid int
+[ERROR] 2021-10-02 14:05:46,551 My Application Logger handle User didn't select a valid int
+[ERROR] 2021-10-02 14:05:46,958 My Application Logger handle User didn't select a valid int
+[INFO] 2021-10-02 14:12:41,213 My Application Logger handle User tried to start without selecting a Sort
+[ERROR] 2021-10-02 14:32:41,297 My Application Logger handle User didn't select a valid int
+[ERROR] 2021-10-02 14:41:12,481 My Application Logger handle User didn't select a valid int
+[ERROR] 2021-10-02 14:41:23,517 My Application Logger handle User didn't select a valid int
+[ERROR] 2021-10-02 14:41:53,342 My Application Logger handle User didn't select a valid int
+[ERROR] 2021-10-02 14:42:14,964 My Application Logger handle User didn't select a valid int
+[ERROR] 2021-10-02 14:43:31,904 My Application Logger handle User didn't select a valid int
+[ERROR] 2021-10-02 14:48:01,268 My Application Logger handle User didn't select a valid int
+[ERROR] 2021-10-02 14:57:01,733 My Application Logger handle User didn't select a valid int
+[ERROR] 2021-10-02 14:57:02,452 My Application Logger handle User didn't select a valid int
+[ERROR] 2021-10-02 14:57:03,390 My Application Logger handle User didn't select a valid int
+[ERROR] 2021-10-02 14:57:04,253 My Application Logger handle User didn't select a valid int
+[ERROR] 2021-10-02 14:57:05,211 My Application Logger handle User didn't select a valid int
+[ERROR] 2021-10-02 15:04:28,053 My Application Logger handle User didn't select a valid int
+[ERROR] 2021-10-02 15:04:31,130 My Application Logger handle User didn't select a valid int
+[ERROR] 2021-10-02 15:25:09,794 My Application Logger handle User didn't select a valid int
+[ERROR] 2021-10-02 15:25:10,756 My Application Logger handle User didn't select a valid int

@@ -1,8 +1,24 @@
 package com.sparta.model;
+import static java.lang.System.nanoTime;
 
 public abstract class SuperSort implements SortFactory{
 
     abstract public int[] sort(int[] arrInp);
+
+    private long startTime;
+    private long endTime;
+
+    public long getCompletionTime(){
+        return (endTime - startTime);
+
+    }
+
+    public void setStartTime(){
+        startTime = nanoTime();
+    }
+    public void setEndTime(){
+        endTime = nanoTime();
+    }
 
     public void printArray(int arr[])
     {

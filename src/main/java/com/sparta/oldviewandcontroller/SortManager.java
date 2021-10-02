@@ -1,4 +1,4 @@
-package com.sparta.viewandcontroller;
+package com.sparta.oldviewandcontroller;
 
 import com.sparta.logging.LoggingMain;
 import com.sparta.model.*;
@@ -34,9 +34,9 @@ public class SortManager {
 
             // if im going to use a gui do I need to add try catch exceptions here?
             // my gui will hav an input for the size of array so I will catch that and can use what I have here to replace it with
-
+            // array of sorters that is populated from the gui selections when the go button is pressed
             switch (choice) {
-                case "BubbleSort", "bubblesort", "Bubble", "bubble":
+                case "BubbleSort", "bubblesort", "Bubble", "bubble","bub", "Bub":
                     theFactory = new BubbleSort();
                     break;
                 case "MergeSort", "mergesort", "merge", "Merge", "M", "m":
@@ -47,6 +47,12 @@ public class SortManager {
                     break;
                 case "Binary", "binary", "bin", "Bin", "BinarySort", "BinaryTree", "BinaryTreeSort" , "binarytreesort", "binarysort", "binarytree":
                     theFactory = new BinaryTreeSort();
+                    break;
+                case "selection","Selection","s","S":
+                    theFactory = new SelectionSort();
+                    break;
+                case "Insertion","insertion","i","I":
+                    theFactory = new InsertionSort();
                     break;
                 default:
                     theFactory = null;

@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestBubbleSort {
     @Test
-    public void testSort(){
+    public void givenRandomArrayDoesSelectionSortCorrectly(){
         BubbleSort myBubbleSort = new BubbleSort();
         IntArrayGenerate myArray = new IntArrayGenerate();
 

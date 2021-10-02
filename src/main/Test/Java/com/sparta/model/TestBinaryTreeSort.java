@@ -33,7 +33,7 @@ public class TestBinaryTreeSort {
     }
 
     @Test
-    public void givenArrayWithMulitpleEqualIntsReturnSortedArray(){
+    public void givenArrayWithMultipleEqualIntsReturnSortedArray(){
         int[] testArray = {20,12,54,1,20,12};
         int[] testSortedArray = {1,12,12,20,20,54};
         BinaryTreeSort theTreeTest = new BinaryTreeSort();
