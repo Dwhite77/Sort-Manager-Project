@@ -38,7 +38,6 @@ public class TestQuickSort {
         int[] myArr = {12,23,45,56,11,9,10,15,18};
         int pi = QuickSort.partition(myArr,0,myArr.length-1);
         assertEquals(5,pi);
-        assertEquals(4,pi);
     }
 
     @Test
@@ -47,7 +46,4 @@ public class TestQuickSort {
         int pi = QuickSort.partition(myArr,0,myArr.length-1);
         assertEquals(1,pi);
     }
-
-
-
 }

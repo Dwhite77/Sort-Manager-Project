@@ -13,6 +13,10 @@ import javafx.geometry.Pos;
 
 import javafx.scene.Scene;
 
+import javafx.scene.chart.BarChart;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.*;
 
 import javafx.scene.layout.GridPane;
@@ -47,6 +51,11 @@ public class GUI extends Application{
         CheckBox insertionCheckBox = new CheckBox("InsertionSort");
         CheckBox selectionCheckBox = new CheckBox("SelectionSort");
 
+        //Arrays.sort Collections.sort, arrays.parallelSort
+        CheckBox standardArraySortCheckBox = new CheckBox("Standard Lib Array Sort");
+        CheckBox standardCollectionsSortCheckBox = new CheckBox("Standard Lib Collections Sort");
+        CheckBox standardArrayParallelSortCheckBox = new CheckBox("Standard Lib Array Parallel Sort");
+
         TextField arrayTextField = new TextField("Array Size?");
 
         // set widths of buttons and text field, so they are the same
@@ -56,6 +65,21 @@ public class GUI extends Application{
         buttonStyle.setPrefWidth(buttonWidth);
         arrayTextField.setPrefWidth(buttonWidth);
 
+        //---------------------------------------------------------------------------------------------------
+
+        CategoryAxis xAxis = new CategoryAxis();
+        xAxis.setLabel("Sort Type");
+
+        NumberAxis yAxis = new NumberAxis();
+        yAxis.setLabel("Time Taken");
+
+        BarChart barChart = new BarChart(xAxis, yAxis);
+
+        XYChart.Series dataSeries1 = new XYChart.Series();
+        dataSeries1.setName("Run 1");
+
+
+        //---------------------------------------------------------------------------------------------------
 
         //creating pane object
         GridPane gridPane = new GridPane();
@@ -77,6 +101,7 @@ public class GUI extends Application{
                 ArrayList<SortFactory> sortFactories = new ArrayList<SortFactory>();
                 String s = arrayTextField.getText();
                 int arraySize = 0;
+
                 try{
                     arraySize = Integer.parseInt(s);
                     if(bubbleCheckBox.isSelected()){
@@ -131,10 +156,13 @@ public class GUI extends Application{
                             if(i==0){
                                 sortFactories.get(i).printArray(myArr);
                             }
+                            dataSeries1.getData().add(new XYChart.Data(sortFactories.get(i).toString(),sortFactories.get(i).getCompletionTime()));
                             System.out.println(sortFactories.get(i).toString()+": "+sortFactories.get(i).getCompletionTime());
                         }
+                        barChart.getData().add(dataSeries1);
                     }
                 } catch(Exception e){
+                    e.printStackTrace();
                     System.err.println("Not a valid int");
                     log.error("User didn't select a valid int");
                 }
@@ -142,14 +170,6 @@ public class GUI extends Application{
             }
         });
 
-//        buttonAgain.setOnAction(new EventHandler<ActionEvent>() {
-//            @Override
-//            public void handle(ActionEvent actionEvent) {
-//                System.out.println("Again");
-//            }
-//        });
-        // array of sorters that is populated from the gui selections when the go button is pressed
-        // checkboxes are checked to see if they are in the ticked or not ticked state, if they are ticked then they are added to an array of sorts, where the int array size input is then fed into them.
         // once the int array size is fed in, we can change the gui to be an output screen where it compares the times of the sort types
 
 
@@ -158,7 +178,7 @@ public class GUI extends Application{
         //-------------------------------------------------------------------------
 
         //size of the pane
-        gridPane.setMinSize(400,200);
+        gridPane.setMinSize(800,400);
         //setting the border
         gridPane.setPadding(new Insets(10,10,10,10));
         //setting vert and horiz gaps between columns
@@ -170,7 +190,6 @@ public class GUI extends Application{
 
         //arranging Check Boxes onto grid nodes
         gridPane.add(buttonExit, 2,4);
-//        gridPane.add(buttonAgain,2, 1);
         gridPane.add(buttonSort,2,2);
         gridPane.add(buttonStyle,0,4);
 
@@ -182,31 +201,26 @@ public class GUI extends Application{
         gridPane.add(selectionCheckBox,1, 1);
         gridPane.add(insertionCheckBox,1, 2);
         gridPane.add(binaryCheckBox,1, 3);
+        gridPane.add(barChart, 5,5,5,5);
 
-
-        //button styling
+        //button styling - css
         buttonExit.setStyle("-fx-background-color: firebrick; -fx-text-fill: white;");
-        //buttonAgain.setStyle("-fx-background-color: firebrick; -fx-text-fill: white;");
         buttonStyle.setStyle("-fx-background-color: firebrick; -fx-text-fill: white;");
         buttonSort.setStyle("-fx-background-color: firebrick; -fx-text-fill: white;");
 
-//        arrayTextField.se
-
-        //pane styling
+        //pane styling - css
         gridPane.setStyle("-fx-background-color: mistyrose;");
-
-
-
         //creating a scene object
-        Scene scene = new Scene(gridPane);
+        Scene choiceScene = new Scene(gridPane);
 
 
+        //--------------------------------------------------------------------------
 
 
         //window title
         primaryStage.setTitle("Sort Choice GUI");
 
-        primaryStage.setScene(scene);
+        primaryStage.setScene(choiceScene);
         primaryStage.show();
 
         buttonStyle.setOnAction(new EventHandler<ActionEvent>() {       // this allows for the full functionality of the old system, whilst maintaining the ability to work on the gui version,
