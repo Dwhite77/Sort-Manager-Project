@@ -26,6 +26,7 @@ import javafx.stage.Stage;
 import org.apache.log4j.Logger;
 
 import java.util.ArrayList;
+import java.util.Collections;
 //----------------------------------------------------------------------------------------------
 //  GUI stuff
 //----------------------------------------------------------------------------------------------
@@ -129,6 +130,7 @@ public class GUI extends Application{
                 try{
                     textOutputs.clear();
                     arraySize = Integer.parseInt(s);
+
                     if(bubbleCheckBox.isSelected()){
                         BubbleSort bubSort = new BubbleSort();
                         sortFactories.add(bubSort);
@@ -165,37 +167,59 @@ public class GUI extends Application{
                         textOutputs.add(textInsert);
                     }
 
+                    if(standardArrayParallelSortCheckBox.isSelected()){
+
+                    }
+
+                    if(standardArraySortCheckBox.isSelected()){
+
+                    }
+
+
+
                     if(sortFactories.isEmpty()){
                         System.err.println("No Sort type selected");
                         log.info("User tried to start without selecting a Sort");
                     }
                     else{
+
                         IntArrayGenerate intArray = new IntArrayGenerate();
                         int[] myArr = intArray.intArrayGen(arraySize);
+
                         for(int j=0;j<myArr.length;j++){
                             System.out.print(myArr[j]+" ");
                         }
-
                         System.out.println();
                         for(int i = 0; i < sortFactories.size();i++){
-
+                            int[] tempArr = myArr.clone();
                             sortFactories.get(i).setStartTime();
-                            sortFactories.get(i).sort(myArr);
+                            sortFactories.get(i).sort(tempArr);
                             sortFactories.get(i).setEndTime();
                             if(i==0){
-                                sortFactories.get(i).printArray(myArr);
+                                sortFactories.get(i).printArray(tempArr);
                             }
+
+
+
+
+
+
+
+
+
                             textOutputs.get(i).setText(sortFactories.get(i).toString()+": "+sortFactories.get(i).getCompletionTime());
-
-
                             //dataSeries1.getData().add(new XYChart.Data(sortFactories.get(i).getCompletionTime(),sortFactories.get(i).toString()));
 
                             gridPane.getChildren().remove(textOutputs.get(i));
                             gridPane.add(textOutputs.get(i),1,i+4);
 
+
                             System.out.println(sortFactories.get(i).toString()+": "+sortFactories.get(i).getCompletionTime());
 
                         }
+//                        if(standardCollectionsSortCheckBox.isSelected()){
+//                            Collections.sort(myArr);
+//                        }
                         //gridPane.add(textVBox,1,4,1,6);
                         //gridPane.getChildren().remove(barChart);
                         //gridPane.add(barChart, 2,0,5,13);
