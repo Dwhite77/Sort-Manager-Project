@@ -156,6 +156,7 @@ public class GUI extends Application{
                             if(i==0){
                                 sortFactories.get(i).printArray(myArr);
                             }
+
                             dataSeries1.getData().add(new XYChart.Data(sortFactories.get(i).toString(),sortFactories.get(i).getCompletionTime()));
                             System.out.println(sortFactories.get(i).toString()+": "+sortFactories.get(i).getCompletionTime());
                         }
@@ -201,7 +202,7 @@ public class GUI extends Application{
         gridPane.add(selectionCheckBox,1, 1);
         gridPane.add(insertionCheckBox,1, 2);
         gridPane.add(binaryCheckBox,1, 3);
-        gridPane.add(barChart, 5,5,5,5);
+        gridPane.add(barChart, 5,1,5,5);
 
         //button styling - css
         buttonExit.setStyle("-fx-background-color: firebrick; -fx-text-fill: white;");

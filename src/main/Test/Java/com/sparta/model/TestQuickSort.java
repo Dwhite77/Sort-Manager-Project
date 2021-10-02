@@ -30,7 +30,6 @@ public class TestQuickSort {
         int[] mySwappedArr = {23,12};
         QuickSort.swap(myArr,0,1);
         assertArrayEquals(myArr,mySwappedArr);
-
     }
 
     @Test
