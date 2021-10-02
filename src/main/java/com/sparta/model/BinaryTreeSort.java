@@ -56,6 +56,7 @@ public class BinaryTreeSort extends SuperSort{
     // using the number of nodes that are within the tree
     // ------------------------------------------------------
     public int[] sort(int[] myArr){
+        setStartTime();
         int arrLen = myArr.length;
         TreeNode root = null;
         for(int i = 0; i<arrLen;i++)
@@ -67,6 +68,7 @@ public class BinaryTreeSort extends SuperSort{
         for(int i =0; i<arrLen;i++){
           finArr[i] = Integer.parseInt(stringTempArr[i]);
         }
+        setEndTime();
         return finArr;
     }
 

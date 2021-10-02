@@ -5,6 +5,7 @@ public class SelectionSort extends SuperSort{
     @Override
     public int[] sort(int[] arr)
     {
+        setStartTime();
         int n = arr.length;
 
         // One by one move boundary of unsorted subarray
@@ -22,6 +23,7 @@ public class SelectionSort extends SuperSort{
             arr[min_idx] = arr[i];
             arr[i] = temp;
         }
+        setEndTime();
         return arr;
     }
 

@@ -65,6 +65,9 @@ public class GUI extends Application{
         Text textBin = new Text();
         Text textInsert = new Text();
         Text textSelect = new Text();
+        Text textSLCS = new Text();
+        Text textSLAS = new Text();
+        Text textSLAPS = new Text();
 
 
         TextField arrayTextField = new TextField("Array Size?");
@@ -119,7 +122,9 @@ public class GUI extends Application{
                 textSelect.setText(" ");
                 textInsert.setText(" ");
                 textQuick.setText(" ");
-
+                textSLCS.setText(" ");
+                textSLAS.setText(" ");
+                textSLAPS.setText(" ");
 
 
                 ArrayList<SortFactory> sortFactories = new ArrayList<SortFactory>();
@@ -167,12 +172,20 @@ public class GUI extends Application{
                         textOutputs.add(textInsert);
                     }
 
+                    if(standardCollectionsSortCheckBox.isSelected()){
+                        StandardCollectionSort colSort = new StandardCollectionSort();
+                        sortFactories.add(colSort);
+                        textOutputs.add(textSLCS);
+                    }
+
                     if(standardArrayParallelSortCheckBox.isSelected()){
 
+                        textOutputs.add(textSLAPS);
                     }
 
                     if(standardArraySortCheckBox.isSelected()){
 
+                        textOutputs.add(textSLAS);
                     }
 
 
@@ -192,17 +205,14 @@ public class GUI extends Application{
                         System.out.println();
                         for(int i = 0; i < sortFactories.size();i++){
                             int[] tempArr = myArr.clone();
-                            sortFactories.get(i).setStartTime();
                             sortFactories.get(i).sort(tempArr);
-                            sortFactories.get(i).setEndTime();
                             if(i==0){
-                                sortFactories.get(i).printArray(tempArr);
+//                                if(binaryCheckBox.isSelected()){
+                                    sortFactories.get(i).printArray(sortFactories.get(i).sort(tempArr));
+//                                }
+//                                else
+//                                    sortFactories.get(i).printArray(tempArr);
                             }
-
-
-
-
-
 
 
 
@@ -217,9 +227,7 @@ public class GUI extends Application{
                             System.out.println(sortFactories.get(i).toString()+": "+sortFactories.get(i).getCompletionTime());
 
                         }
-//                        if(standardCollectionsSortCheckBox.isSelected()){
-//                            Collections.sort(myArr);
-//                        }
+
                         //gridPane.add(textVBox,1,4,1,6);
                         //gridPane.getChildren().remove(barChart);
                         //gridPane.add(barChart, 2,0,5,13);

@@ -7,6 +7,7 @@ public class MergeSort extends SuperSort {
     @Override
     public int[] sort(int[] array)
     {
+        setStartTime();
         if(array.length > 1) // if the array has more than one item in it then we split it and merge the sorted halves
         {
             int elementsInLeft = array.length / 2;
@@ -55,6 +56,7 @@ public class MergeSort extends SuperSort {
                 k++;
             }
         }
+        setEndTime();
         return array;
     }
 

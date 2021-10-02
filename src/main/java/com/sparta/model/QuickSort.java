@@ -7,10 +7,13 @@ public class QuickSort extends SuperSort{
     //--------------------------------------------------------------------------
     @Override
     public int[] sort(int[] arr){
+        setStartTime();
         int low = 0;
         int high = arr.length-1;
         quickSort(arr,low,high);
+        setEndTime();
         return arr;
+
     }
 
     //--------------------------------------------------------------------------

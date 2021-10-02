@@ -5,6 +5,7 @@ public class InsertionSort extends SuperSort{
     @Override
     public int[] sort(int[] arr)
     {
+        setStartTime();
         int n = arr.length;
         for (int i = 1; i < n; ++i) {
             int key = arr[i];
@@ -16,6 +17,7 @@ public class InsertionSort extends SuperSort{
             }
             arr[j + 1] = key;
         }
+        setEndTime();
         return arr;
     }
 

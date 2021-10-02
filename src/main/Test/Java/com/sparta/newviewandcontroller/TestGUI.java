@@ -7,6 +7,5 @@ public class TestGUI {
 // known bugs
 //-------------------------------------------------------------
 //there are issues when creating the first barchart that the names of the columns get all bunched up under the y axis
-//not all of the timers show up, this is especially prevelant when doing a repeat run with a different number of sort types.
-// barchart doesnt resize correctly, especially when binary tree is involved.
-//
+// barchart doesn't resize correctly, especially when binary tree is involved.
+// there are issues with the printed out array when it comes to binary tree, its not printing the sorted array, i know the sorting works due to my testing wil have to look more into this

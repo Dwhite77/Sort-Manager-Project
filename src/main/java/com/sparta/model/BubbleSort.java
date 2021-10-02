@@ -6,6 +6,7 @@ public class BubbleSort extends SuperSort {
     //--------------------------------------------------------------------------
     @Override
     public int[] sort(int[] arrInp) {
+        setStartTime();
         int n = arrInp.length;
         for (int i = 0; i < n - 1; i++) {
             for (int j = 0; j < n - i - 1; j++) {
@@ -16,6 +17,7 @@ public class BubbleSort extends SuperSort {
                 }
             }
         }
+        setEndTime();
         return arrInp;
     }
 
