@@ -36,7 +36,7 @@ public class SortManager {
             // my gui will hav an input for the size of array so I will catch that and can use what I have here to replace it with
             // array of sorters that is populated from the gui selections when the go button is pressed
             switch (choice) {
-                case "BubbleSort", "bubblesort", "Bubble", "bubble":
+                case "BubbleSort", "bubblesort", "Bubble", "bubble","bub", "Bub":
                     theFactory = new BubbleSort();
                     break;
                 case "MergeSort", "mergesort", "merge", "Merge", "M", "m":

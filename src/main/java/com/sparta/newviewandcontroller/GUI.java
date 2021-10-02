@@ -20,6 +20,8 @@ import javafx.scene.chart.XYChart;
 import javafx.scene.control.*;
 
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.apache.log4j.Logger;
 
@@ -40,7 +42,7 @@ public class GUI extends Application{
         int buttonWidth = 80;
 
         Button buttonExit = new Button("Exit");
-        //Button buttonAgain = new Button("Again?");
+        Button buttonResetData = new Button("Reset Data");
         Button buttonSort = new Button("Start Sort");
         Button buttonStyle = new Button("Old Style");
 
@@ -51,34 +53,43 @@ public class GUI extends Application{
         CheckBox insertionCheckBox = new CheckBox("InsertionSort");
         CheckBox selectionCheckBox = new CheckBox("SelectionSort");
 
-        //Arrays.sort Collections.sort, arrays.parallelSort
-        CheckBox standardArraySortCheckBox = new CheckBox("Standard Lib Array Sort");
-        CheckBox standardCollectionsSortCheckBox = new CheckBox("Standard Lib Collections Sort");
-        CheckBox standardArrayParallelSortCheckBox = new CheckBox("Standard Lib Array Parallel Sort");
+
+        CheckBox standardArraySortCheckBox = new CheckBox("Lib Array");
+        CheckBox standardCollectionsSortCheckBox = new CheckBox("Lib Collections");
+        CheckBox standardArrayParallelSortCheckBox = new CheckBox("Lib Array Parallel");
+
+        Text textBub = new Text();
+        Text textMerge = new Text();
+        Text textQuick = new Text();
+        Text textBin = new Text();
+        Text textInsert = new Text();
+        Text textSelect = new Text();
+
 
         TextField arrayTextField = new TextField("Array Size?");
 
         // set widths of buttons and text field, so they are the same
         buttonExit.setPrefWidth(buttonWidth);
-        //buttonAgain.setPrefWidth(buttonWidth);
+        buttonResetData.setPrefWidth(buttonWidth);
         buttonSort.setPrefWidth(buttonWidth);
+        buttonSort.setPrefHeight(50);
         buttonStyle.setPrefWidth(buttonWidth);
         arrayTextField.setPrefWidth(buttonWidth);
 
         //---------------------------------------------------------------------------------------------------
 
-        CategoryAxis xAxis = new CategoryAxis();
-        xAxis.setLabel("Sort Type");
+//        CategoryAxis xAxis = new CategoryAxis();
+//        xAxis.setLabel("Sort Type");
+//
+//        NumberAxis yAxis = new NumberAxis();
+//        yAxis.setLabel("Time Taken");
 
-        NumberAxis yAxis = new NumberAxis();
-        yAxis.setLabel("Time Taken");
+//        BarChart barChart = new BarChart(yAxis, xAxis);
+//        //barChart.setPrefHeight(800);
+//        XYChart.Series dataSeries1 = new XYChart.Series();
+//        dataSeries1.setName("Run 1");
 
-        BarChart barChart = new BarChart(xAxis, yAxis);
-
-        XYChart.Series dataSeries1 = new XYChart.Series();
-        dataSeries1.setName("Run 1");
-
-
+        ArrayList<Text> textOutputs = new ArrayList<Text>();
         //---------------------------------------------------------------------------------------------------
 
         //creating pane object
@@ -87,6 +98,8 @@ public class GUI extends Application{
         //-------------------------------------------------------------------------
         //Event handling
         //-------------------------------------------------------------------------
+
+
 
         buttonExit.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -98,44 +111,58 @@ public class GUI extends Application{
         buttonSort.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
+
+                textBub.setText(" ");
+                textBin.setText(" ");
+                textMerge.setText(" ");
+                textSelect.setText(" ");
+                textInsert.setText(" ");
+                textQuick.setText(" ");
+
+
+
                 ArrayList<SortFactory> sortFactories = new ArrayList<SortFactory>();
+                sortFactories.clear();
                 String s = arrayTextField.getText();
                 int arraySize = 0;
 
                 try{
+                    textOutputs.clear();
                     arraySize = Integer.parseInt(s);
                     if(bubbleCheckBox.isSelected()){
                         BubbleSort bubSort = new BubbleSort();
                         sortFactories.add(bubSort);
+                        textOutputs.add(textBub);
                     }
 
                     if(mergeCheckBox.isSelected()){
                         MergeSort mSort = new MergeSort();
                         sortFactories.add(mSort);
+                        textOutputs.add(textMerge);
                     }
 
                     if(binaryCheckBox.isSelected()){
                         BinaryTreeSort binSort = new BinaryTreeSort();
                         sortFactories.add(binSort);
+                        textOutputs.add(textBin);
                     }
 
                     if(quickCheckBox.isSelected()){
                         QuickSort qSort = new QuickSort();
                         sortFactories.add(qSort);
+                        textOutputs.add(textQuick);
                     }
 
                     if(selectionCheckBox.isSelected()){
-//                    System.err.println("Selection Sort is not currently implemented"); //this is to demonstrate usage of this stuff
-//                    log.info("User tried to select Selection Sort");
                         SelectionSort sSort = new SelectionSort();
                         sortFactories.add(sSort);
+                        textOutputs.add(textSelect);
                     }
 
                     if(insertionCheckBox.isSelected()){
-//                    System.err.println("Insertion Sort is not currently implemented"); //this is to demonstrate usage of this stuff
-//                    log.info("User tried to select Insertion Sort");
                         InsertionSort iSort = new InsertionSort();
                         sortFactories.add(iSort);
+                        textOutputs.add(textInsert);
                     }
 
                     if(sortFactories.isEmpty()){
@@ -148,22 +175,34 @@ public class GUI extends Application{
                         for(int j=0;j<myArr.length;j++){
                             System.out.print(myArr[j]+" ");
                         }
+
                         System.out.println();
                         for(int i = 0; i < sortFactories.size();i++){
+
                             sortFactories.get(i).setStartTime();
                             sortFactories.get(i).sort(myArr);
                             sortFactories.get(i).setEndTime();
                             if(i==0){
                                 sortFactories.get(i).printArray(myArr);
                             }
+                            textOutputs.get(i).setText(sortFactories.get(i).toString()+": "+sortFactories.get(i).getCompletionTime());
 
-                            dataSeries1.getData().add(new XYChart.Data(sortFactories.get(i).toString(),sortFactories.get(i).getCompletionTime()));
+
+                            //dataSeries1.getData().add(new XYChart.Data(sortFactories.get(i).getCompletionTime(),sortFactories.get(i).toString()));
+
+                            gridPane.getChildren().remove(textOutputs.get(i));
+                            gridPane.add(textOutputs.get(i),1,i+4);
+
                             System.out.println(sortFactories.get(i).toString()+": "+sortFactories.get(i).getCompletionTime());
+
                         }
-                        barChart.getData().add(dataSeries1);
+                        //gridPane.add(textVBox,1,4,1,6);
+                        //gridPane.getChildren().remove(barChart);
+                        //gridPane.add(barChart, 2,0,5,13);
+                        //barChart.getData().add(dataSeries1);
                     }
                 } catch(Exception e){
-                    e.printStackTrace();
+                    //e.printStackTrace();
                     System.err.println("Not a valid int");
                     log.error("User didn't select a valid int");
                 }
@@ -187,27 +226,35 @@ public class GUI extends Application{
         gridPane.setHgap(20);
 
         //set grid alignment
-        gridPane.setAlignment(Pos.CENTER);
+        gridPane.setAlignment(Pos.TOP_LEFT);
 
         //arranging Check Boxes onto grid nodes
-        gridPane.add(buttonExit, 2,4);
-        gridPane.add(buttonSort,2,2);
-        gridPane.add(buttonStyle,0,4);
+        gridPane.add(buttonExit, 8,12,1,2);
+        gridPane.add(buttonSort,1,1,1,3);
+        gridPane.add(buttonStyle,0,12,1,2);
+        gridPane.add(buttonResetData,1,12,1,2);
 
-        gridPane.add(arrayTextField, 1, 4);
+
 
         gridPane.add(bubbleCheckBox,0, 1);
         gridPane.add(mergeCheckBox,0, 2);
         gridPane.add(quickCheckBox,0, 3);
-        gridPane.add(selectionCheckBox,1, 1);
-        gridPane.add(insertionCheckBox,1, 2);
-        gridPane.add(binaryCheckBox,1, 3);
-        gridPane.add(barChart, 5,1,5,5);
+        gridPane.add(selectionCheckBox,0, 4);
+        gridPane.add(insertionCheckBox,0, 5);
+        gridPane.add(binaryCheckBox,0, 6);
+        gridPane.add(arrayTextField, 0, 7,1,2);
+        gridPane.add(standardArrayParallelSortCheckBox,0,9);
+        gridPane.add(standardArraySortCheckBox,0,10);
+        gridPane.add(standardCollectionsSortCheckBox,0,11);
+
+        //gridPane.add(barChart, 2,0,5,13);
+
 
         //button styling - css
         buttonExit.setStyle("-fx-background-color: firebrick; -fx-text-fill: white;");
         buttonStyle.setStyle("-fx-background-color: firebrick; -fx-text-fill: white;");
         buttonSort.setStyle("-fx-background-color: firebrick; -fx-text-fill: white;");
+        buttonResetData.setStyle("-fx-background-color: firebrick; -fx-text-fill: white;");
 
         //pane styling - css
         gridPane.setStyle("-fx-background-color: mistyrose;");
@@ -232,6 +279,21 @@ public class GUI extends Application{
                 AskQuestions.askQuestions();
             }
         });
+
+        buttonResetData.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                /* delete all data currently in play
+                delete text boxes
+                delete bar chart
+                recreate an empty bar chart
+                */
+
+                //choiceScene.
+            }
+        });
+
+
 
     }
 
