@@ -8,7 +8,7 @@ public class MergeSort extends SuperSort {
     public int[] sort(int[] array)
     {
         setStartTime();
-        if(array.length > 1) // if the array has more than one item in it then we split it and merge the sorted halves
+        if(array.length > 1)
         {
             int elementsInLeft = array.length / 2;
             int elementsInRight = array.length - elementsInLeft;
@@ -34,7 +34,6 @@ public class MergeSort extends SuperSort {
                     i++;
                     j++;
                 }
-
                 else
                 {
                     array[i] = rightArr[k];

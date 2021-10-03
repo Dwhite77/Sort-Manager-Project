@@ -11,6 +11,7 @@ import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 
+import javafx.geometry.Side;
 import javafx.scene.Scene;
 
 import javafx.scene.chart.BarChart;
@@ -85,11 +86,11 @@ public class GUI extends Application{
         NumberAxis yAxis = new NumberAxis();
         yAxis.setLabel("Time Taken");
 
-        BarChart barChart = new BarChart(yAxis, xAxis);
+        BarChart barChart = new BarChart(xAxis, yAxis);
         XYChart.Series dataSeries1 = new XYChart.Series();
         dataSeries1.setName("Run 1");
         barChart.setAnimated(false); // unfortunately these animations are really buggy and therefore to get the GUI to function correctly I have to disable this
-
+        yAxis.setSide(Side.RIGHT);
         ArrayList<Text> textOutputs = new ArrayList<Text>();
 
         GridPane gridPane = new GridPane();
@@ -148,11 +149,6 @@ public class GUI extends Application{
                         textOutputs.add(textMerge);
                     }
 
-                    if(binaryCheckBox.isSelected()){
-                        BinaryTreeSort binSort = new BinaryTreeSort();
-                        sortFactories.add(binSort);
-                        textOutputs.add(textBin);
-                    }
 
                     if(quickCheckBox.isSelected()){
                         QuickSort qSort = new QuickSort();
@@ -172,10 +168,10 @@ public class GUI extends Application{
                         textOutputs.add(textInsert);
                     }
 
-                    if(standardCollectionsSortCheckBox.isSelected()){
-                        StandardCollectionSort colSort = new StandardCollectionSort();
-                        sortFactories.add(colSort);
-                        textOutputs.add(textSLCS);
+                    if(binaryCheckBox.isSelected()){
+                        BinaryTreeSort binSort = new BinaryTreeSort();
+                        sortFactories.add(binSort);
+                        textOutputs.add(textBin);
                     }
 
                     if(standardArrayParallelSortCheckBox.isSelected()){
@@ -190,6 +186,11 @@ public class GUI extends Application{
                         textOutputs.add(textSLAS);
                     }
 
+                    if(standardCollectionsSortCheckBox.isSelected()){
+                        StandardCollectionSort colSort = new StandardCollectionSort();
+                        sortFactories.add(colSort);
+                        textOutputs.add(textSLCS);
+                    }
 
 
                     if(sortFactories.isEmpty()){
@@ -216,24 +217,25 @@ public class GUI extends Application{
                         // This is what works out how much data we are going to display, on both the bar chart and the text outputs
                         //-----------------------------------------------------------------------------------------------------------------------------------
                         System.out.println();
+                        int sFLen = sortFactories.size() -1;
                         for(int i = 0; i < sortFactories.size();i++){
                             int[] tempArr = myArr.clone();
                             sortFactories.get(i).sort(tempArr);
                             if(i==0){
                                 sortFactories.get(i).printArray(sortFactories.get(i).sort(tempArr));
-                                if(myArr.length <= 100) {
-                                    textSortedNums.setText("Sorted Array:    " + sortFactories.get(i).arrayString(sortFactories.get(i).sort(tempArr)));
-                                }
+                                textSortedNums.setText("Sorted Array:    " + sortFactories.get(i).arrayString(sortFactories.get(i).sort(tempArr)));
+
                             }
                             textOutputs.get(i).setText(sortFactories.get(i).toString()+": "+sortFactories.get(i).getCompletionTime()+"ns");
-                            dataSeries1.getData().add(new XYChart.Data(sortFactories.get(i).getCompletionTime(),sortFactories.get(i).toString()));
+                            dataSeries1.getData().add(new XYChart.Data(sortFactories.get(i).toString(),sortFactories.get(i).getCompletionTime()));
                             gridPane.getChildren().remove(textOutputs.get(i));
                             gridPane.add(textOutputs.get(i),1,i+1,1,1);
-                            System.out.println(sortFactories.get(i).toString()+": "+sortFactories.get(i).getCompletionTime());
+                            System.out.println(sortFactories.get(i).toString()+": "+sortFactories.get(i).getCompletionTime()+" ");
                         }
                         gridPane.getChildren().remove(barChart);
                         gridPane.add(barChart, 2,0,5,30);
                         barChart.getData().add(dataSeries1);
+
                         //-----------------------------------------------------------------------------------------------------------------------------------
 
                     }
@@ -262,7 +264,7 @@ public class GUI extends Application{
         gridPane.setAlignment(Pos.TOP_LEFT);
 
         //arranging Check Boxes onto grid nodes
-        gridPane.add(buttonExit, 0,26,1,2);
+        gridPane.add(buttonExit, 0,25,1,2);
         gridPane.add(buttonSort,0,14,1,3);
         gridPane.add(buttonStyle,0,20,1,2);
 

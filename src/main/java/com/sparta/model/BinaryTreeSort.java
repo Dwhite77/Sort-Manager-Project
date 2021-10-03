@@ -94,20 +94,10 @@ public class BinaryTreeSort extends SuperSort{
             root.leftNode = add(root.leftNode,value);
         }
         if(value >= root.getValue()){
-            root.rightNode = add(root.rightNode,value);// this might not be normal for a binary tree, but what's important here is that we are using the binary tree method to SORT A LIST OF INTS which is what mine does, its also what the visualiser does
+            root.rightNode = add(root.rightNode,value);
         }
         return root;
     }
-
-    //    public static boolean isPerfectBinaryTree(int count) { // this completely breaks it dont both using perfect binary tree, we just want it to order
-//        count++;
-//        while(count%2 ==0)
-//            count = count/2;
-//        if(count==1)
-//            return true;
-//        else return false;
-//    }
-
 
     @Override
     public String toString() {

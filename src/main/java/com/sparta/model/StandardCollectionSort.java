@@ -1,9 +1,7 @@
 package com.sparta.model;
 
-import java.lang.reflect.Array;
+
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
 import java.util.Collections;
 
 public class StandardCollectionSort extends SuperSort{
@@ -36,5 +34,3 @@ public class StandardCollectionSort extends SuperSort{
         return "StandardCollectionSort";
     }
 }
-//
-// Java standard library Collections.sort(), Arrays.sort() and Arrays.parallelSort().
