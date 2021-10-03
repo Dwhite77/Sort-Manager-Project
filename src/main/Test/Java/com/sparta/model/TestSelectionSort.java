@@ -19,6 +19,5 @@ public class TestSelectionSort {
             }
         }
         assertEquals(count,sortedArr.length-1);
-
     }
 }

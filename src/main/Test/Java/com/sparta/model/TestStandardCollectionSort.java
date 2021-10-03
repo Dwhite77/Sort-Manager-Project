@@ -12,8 +12,5 @@ public class TestStandardCollectionSort {
         StandardCollectionSort colSort = new StandardCollectionSort();
         int[] outputArray = colSort.sort(testArray);
         assertArrayEquals(sortedArray,outputArray);
-
     }
-
-
 }

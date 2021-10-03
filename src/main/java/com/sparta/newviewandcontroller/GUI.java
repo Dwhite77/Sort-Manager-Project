@@ -71,6 +71,8 @@ public class GUI extends Application{
 
         TextField arrayTextField = new TextField("Array Size?");
 
+        ArrayList<SortFactory> sortFactories = new ArrayList<SortFactory>();
+
         // set widths of buttons and text field, so they are the same
         buttonExit.setPrefWidth(buttonWidth);
         buttonSort.setPrefWidth(buttonWidth);
@@ -84,7 +86,7 @@ public class GUI extends Application{
         xAxis.setLabel("Sort Type");
 
         NumberAxis yAxis = new NumberAxis();
-        yAxis.setLabel("Time Taken");
+        yAxis.setLabel("Time Taken (ns)");
 
         BarChart barChart = new BarChart(xAxis, yAxis);
         XYChart.Series dataSeries1 = new XYChart.Series();
@@ -126,7 +128,7 @@ public class GUI extends Application{
                 textSortedNums.setText(" ");
 
 
-                ArrayList<SortFactory> sortFactories = new ArrayList<SortFactory>();
+
                 sortFactories.clear();
                 String s = arrayTextField.getText();
                 int arraySize = 0;

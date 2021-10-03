@@ -12,7 +12,5 @@ public class TestStandardArrayParallelSort {
         StandardArrayParallelSort sAPSort = new StandardArrayParallelSort();
         sAPSort.sort(inputArray);
         assertArrayEquals(sortedArray,inputArray);
-
     }
-
 }

@@ -9,7 +9,7 @@ The Sort Manager Project, is a small application used to generate an array of ra
 5. [License](#license)
 
 ## Introduction <a name="intro"><a/>
-This is a very easy to use
+This is a very easy and intuitive to use
 ## Features <a name="features"><a/>
 My Project contains a large number of special features that allow it to stand out from the crowd.
 #### GUI

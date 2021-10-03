@@ -20,6 +20,5 @@ public class TestBubbleSort {
         }
         assertEquals(count,sortedArr.length-1);
         LoggingMain log = new LoggingMain();
-        //log.
     }
 }

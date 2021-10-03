@@ -19,6 +19,5 @@ public class TestInsertionSort {
             }
         }
         assertEquals(count,sortedArr.length-1);
-
     }
 }
