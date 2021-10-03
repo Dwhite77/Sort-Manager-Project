@@ -2,19 +2,26 @@
 
 The Sort Manager Project, is a small application used to generate an array of random numbers and them sort them into numerical order.
 ## Table of Contents
-1. [Features](#features)
-2. [Project Motivation](#project)
-3. [Testing](#testing)
-4. [License](#license)
+1. [Introduction](#intro)
+2. [Features](#features)
+3. [Project Motivation](#project)
+4. [Testing](#testing)
+5. [License](#license)
 
+## Introduction <a name="intro"><a/>
+This is a very easy to use
 ## Features <a name="features"><a/>
 My Project contains a large number of special features that allow it to stand out from the crowd.
 #### GUI
-Namely an intuitive GUI that makes it far easier to use, as everything is spelled out for the user.  - Insert Picture of GUI - However for those who prefer that school feel, we still have the option to swap to an older console style version of the system, however this does have a reduced number of features.
+Namely an intuitive GUI that makes it far easier to use, as everything is spelled out for the user. ![GUI](gui.png)
+
+However for those who prefer that school feel, we still have the option to swap to an older console style version of the system, however this does have a reduced number of features.
 #### Check Boxes
-No longer do they have to contend with clunky typed inputs instead I have implemented a simple CheckBox system that allows multiple sorts to be run simultaneously for comparison. - Insert picture of checkboxes -
+No longer do they have to contend with clunky typed inputs instead I have implemented a simple Check Box system that allows multiple sorts to be run simultaneously for comparison.
+
+![checkboxes](checkboxes.png)
 #### Bar Chart
-A Bar Chart makes the time comparisons far easier when it comes to larger numbers, as during the manual testing phase it became clear that when the numbers are large it becomes more difficult to differentiate between the results. - Insert picture of Bar Chart here -
+A Bar Chart makes the time comparisons far easier when it comes to larger numbers, as during the manual testing phase it became clear that when the numbers are large it becomes more difficult to differentiate between the results. ![barchart](barchart.png)
 
 ## The Motivation behind the project <a name="project"><a/>
 - A desire to improve my Java Skills by putting them into practice, using a number of the skills I have picked up over the past few weeks.
