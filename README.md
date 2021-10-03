@@ -3,19 +3,25 @@
 The Sort Manager Project, is a small application used to generate an array of random numbers and them sort them into numerical order.
 ## Table of Contents
 1. [Introduction](#intro)
+2. [Instructions](#instructions)
 2. [Features](#features)
 3. [Project Motivation](#project)
 4. [Testing](#testing)
 5. [License](#license)
 
 ## Introduction <a name="intro"><a/>
-This is a very easy and intuitive to use
-## Features <a name="features"><a/>
-My Project contains a large number of special features that allow it to stand out from the crowd.
-#### GUI
-Namely an intuitive GUI that makes it far easier to use, as everything is spelled out for the user. ![GUI](gui.png)
+This is a very easy and intuitive to use random number array sorter, it allows for easy repeats of tests, at the push of a couple of buttons. to repeat the exact same experiment, its as simple as pressing the Sort button again. This can be done as many times as you wish. The arrays are printed both onto the GUI itself as well as into the console (for easier reading of longer arrays) should you wish to check them. The times of all of the sort types are listed next to the bar chart so you can see their exact values.
+## Instructions<a name="instructions"><a/>
+1. Choose which sort types you would like to use by selecting their respective check boxes.
+2. Select the length of random array you would like to generate.
+3. Click the "Start Sort" button.
 
-However for those who prefer that school feel, we still have the option to swap to an older console style version of the system, however this does have a reduced number of features.
+## Features <a name="features"><a/>
+
+#### GUI
+Among the features unique to my sorter the first is an intuitive GUI that makes it far easier to use, as everything is spelled out for the user. ![GUI](gui.png)
+
+However for those who prefer that school feel, we still have the option to swap to an older console style version of the system, however this does have a reduced number of features. It does not have access to the inbuilt java library sort types
 #### Check Boxes
 No longer do they have to contend with clunky typed inputs instead I have implemented a simple Check Box system that allows multiple sorts to be run simultaneously for comparison.
 
@@ -63,9 +69,8 @@ public void givenTwoNumbersInAnArrayReturnSwappedNumbersInAnArray(){
 ## Future Project Direction <a name="future"><a/>
 I Would like to continue working on this project so that all of the features I have in mind can be implemented however time may not allow this. therefore here are a few of the things I would like to see this do in the future.
 - Average time Bar Chart that takes into account all of the previous test cases, the old data can be read in from a file and then after more testing is done this can be overwritten based on the new information.
+- Output results to CSV file.
 
-## Help on readmes
-[Click Me!](https://www.freecodecamp.org/news/how-to-write-a-good-readme-file/)
 
 ## License <a name="license"><a/>
 [MIT](https://choosealicense.com/licenses/mit/)

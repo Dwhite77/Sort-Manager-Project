@@ -53,9 +53,9 @@ public class GUI extends Application{
         CheckBox binaryCheckBox = new CheckBox("BinaryTreeSort");
         CheckBox insertionCheckBox = new CheckBox("InsertionSort");
         CheckBox selectionCheckBox = new CheckBox("SelectionSort");
-        CheckBox standardArraySortCheckBox = new CheckBox("Lib Array");
-        CheckBox standardCollectionsSortCheckBox = new CheckBox("Lib Collections");
-        CheckBox standardArrayParallelSortCheckBox = new CheckBox("Lib Array Parallel");
+        CheckBox standardArraySortCheckBox = new CheckBox("Std Array");
+        CheckBox standardCollectionsSortCheckBox = new CheckBox("Std Collections");
+        CheckBox standardArrayParallelSortCheckBox = new CheckBox("Std Array Parallel");
 
         Text textBub = new Text();
         Text textMerge = new Text();
