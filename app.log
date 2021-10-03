@@ -80,3 +80,5 @@
 [INFO] 2021-10-02 18:07:24,931 My Application Logger handle User tried to start without selecting a Sort
 [INFO] 2021-10-02 18:07:34,515 My Application Logger handle User tried to start without selecting a Sort
 [INFO] 2021-10-02 20:00:45,085 My Application Logger handle User tried to start without selecting a Sort
+[ERROR] 2021-10-03 12:13:16,686 My Application Logger handle User didn't select a valid int
+[INFO] 2021-10-03 12:29:09,387 My Application Logger handle User tried to start without selecting a Sort

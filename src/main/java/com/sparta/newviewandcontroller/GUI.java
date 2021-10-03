@@ -20,15 +20,13 @@ import javafx.scene.chart.XYChart;
 import javafx.scene.control.*;
 
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.apache.log4j.Logger;
 
 import java.util.ArrayList;
-import java.util.Collections;
 //----------------------------------------------------------------------------------------------
-//  GUI stuff
+//  GUI Code
 //----------------------------------------------------------------------------------------------
 
 public class GUI extends Application{
@@ -42,7 +40,7 @@ public class GUI extends Application{
 
         Logger log = LoggingMain.getLogger();
 
-        int buttonWidth = 80;
+        int buttonWidth = 110;
 
         Button buttonExit = new Button("Exit");
         Button buttonSort = new Button("Start Sort");
@@ -181,12 +179,14 @@ public class GUI extends Application{
                     }
 
                     if(standardArrayParallelSortCheckBox.isSelected()){
-
+                        StandardArrayParallelSort sAPSort = new StandardArrayParallelSort();
+                        sortFactories.add(sAPSort);
                         textOutputs.add(textSLAPS);
                     }
 
                     if(standardArraySortCheckBox.isSelected()){
-
+                        StandardArraySort sASort = new StandardArraySort();
+                        sortFactories.add(sASort);
                         textOutputs.add(textSLAS);
                     }
 
@@ -212,7 +212,9 @@ public class GUI extends Application{
                         if(myArr.length <= 100){
                             textRandNums.setText("Random Array: " + strOutRand);
                         }
-
+                        //-----------------------------------------------------------------------------------------------------------------------------------
+                        // This is what works out how much data we are going to display, on both the bar chart and the text outputs
+                        //-----------------------------------------------------------------------------------------------------------------------------------
                         System.out.println();
                         for(int i = 0; i < sortFactories.size();i++){
                             int[] tempArr = myArr.clone();
@@ -223,15 +225,17 @@ public class GUI extends Application{
                                     textSortedNums.setText("Sorted Array:    " + sortFactories.get(i).arrayString(sortFactories.get(i).sort(tempArr)));
                                 }
                             }
-                            textOutputs.get(i).setText(sortFactories.get(i).toString()+": "+sortFactories.get(i).getCompletionTime());
+                            textOutputs.get(i).setText(sortFactories.get(i).toString()+": "+sortFactories.get(i).getCompletionTime()+"ns");
                             dataSeries1.getData().add(new XYChart.Data(sortFactories.get(i).getCompletionTime(),sortFactories.get(i).toString()));
                             gridPane.getChildren().remove(textOutputs.get(i));
-                            gridPane.add(textOutputs.get(i),1,i+5);
+                            gridPane.add(textOutputs.get(i),1,i+1,1,1);
                             System.out.println(sortFactories.get(i).toString()+": "+sortFactories.get(i).getCompletionTime());
                         }
                         gridPane.getChildren().remove(barChart);
-                        gridPane.add(barChart, 2,0,5,13);
+                        gridPane.add(barChart, 2,0,5,30);
                         barChart.getData().add(dataSeries1);
+                        //-----------------------------------------------------------------------------------------------------------------------------------
+
                     }
                 } catch(Exception e){
                     //e.printStackTrace();
@@ -242,15 +246,12 @@ public class GUI extends Application{
             }
         });
 
-        // once the int array size is fed in, we can change the gui to be an output screen where it compares the times of the sort types
-
-
-        //-------------------------------------------------------------------------
+         //-------------------------------------------------------------------------
         //Grid creation
         //-------------------------------------------------------------------------
 
         //size of the pane
-        gridPane.setMinSize(900,500);
+        gridPane.setMinSize(900,200);
         //setting the border
         gridPane.setPadding(new Insets(10,10,10,10));
         //setting vert and horiz gaps between columns
@@ -261,11 +262,11 @@ public class GUI extends Application{
         gridPane.setAlignment(Pos.TOP_LEFT);
 
         //arranging Check Boxes onto grid nodes
-        gridPane.add(buttonExit, 1,12,1,2);
-        gridPane.add(buttonSort,1,0,1,3);
-        gridPane.add(buttonStyle,0,12,1,2);
+        gridPane.add(buttonExit, 0,26,1,2);
+        gridPane.add(buttonSort,0,14,1,3);
+        gridPane.add(buttonStyle,0,20,1,2);
 
-        gridPane.add(arrayTextField, 1, 3,1,2);
+        gridPane.add(arrayTextField, 0, 11,1,2);
 
         gridPane.add(bubbleCheckBox,0, 1);
         gridPane.add(mergeCheckBox,0, 2);
@@ -278,10 +279,10 @@ public class GUI extends Application{
         gridPane.add(standardArraySortCheckBox,0,8);
         gridPane.add(standardCollectionsSortCheckBox,0,9);
 
-        gridPane.add(textRandNums,0,13,5,1);
-        gridPane.add(textSortedNums,0,14,5,1);
+        gridPane.add(textRandNums,0,36,5,1);
+        gridPane.add(textSortedNums,0,37,5,1);
 
-        gridPane.add(barChart, 2,0,5,13);
+        gridPane.add(barChart, 2,0,5,30);
 
 
         //button styling - css
