@@ -14,7 +14,7 @@ This is a very easy and intuitive to use random number array sorter, it allows f
 ## Instructions<a name="instructions"><a/>
 1. Choose which sort types you would like to use by selecting their respective check boxes.
 2. Select the length of random array you would like to generate.
-3. If you wish to change the upper bounds for the random numbers then input a number into the second text field, by default this number is 100, but if you input another integer into here and press enter this will be your new upper bounds. 
+3. If you wish to change the upper bounds for the random numbers then input a number into the second text field, by default this number is 100, but if you input another integer into here and press enter this will be your new upper bounds.
 4. Click the "Start Sort" button.
 
 ## Features <a name="features"><a/>
@@ -26,7 +26,7 @@ However for those who prefer that school feel, we still have the option to swap 
 #### Check Boxes
 No longer do they have to contend with clunky typed inputs instead I have implemented a simple Check Box system that allows multiple sorts to be run simultaneously for comparison.
 
-![checkboxes](checkboxes.png)
+![checkboxes](Checkboxes.png)
 #### Bar Chart
 A Bar Chart makes the time comparisons far easier when it comes to larger numbers, as during the manual testing phase it became clear that when the numbers are large it becomes more difficult to differentiate between the results. ![barchart](barchart.png)
 
