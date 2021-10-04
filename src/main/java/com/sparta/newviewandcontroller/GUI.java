@@ -111,6 +111,7 @@ public class GUI extends Application{
                     upperBounds = Integer.parseInt(strUpperBounds);
                     IntArrayGenerate.setUpperBounds(upperBounds);
                 } catch(Exception e){
+                    log.error("User didn't select a valid int");
                     System.err.println("Not a Valid Int");
                 }
             }
