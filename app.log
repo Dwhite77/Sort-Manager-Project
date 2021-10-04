@@ -91,3 +91,8 @@
 [ERROR] 2021-10-03 13:34:02,183 My Application Logger handle User didn't select a valid int
 [ERROR] 2021-10-03 13:34:43,061 My Application Logger handle User didn't select a valid int
 [ERROR] 2021-10-03 13:35:27,819 My Application Logger handle User didn't select a valid int
+[ERROR] 2021-10-03 20:38:26,765 My Application Logger handle User didn't select a valid int
+[ERROR] 2021-10-03 20:38:34,027 My Application Logger handle User didn't select a valid int
+[INFO] 2021-10-03 20:38:37,077 My Application Logger handle User tried to start without selecting a Sort
+[ERROR] 2021-10-03 20:38:43,767 My Application Logger handle User didn't select a valid int
+[ERROR] 2021-10-04 09:12:10,055 My Application Logger handle User didn't select a valid int

@@ -70,6 +70,7 @@ public class GUI extends Application{
         Text textSortedNums = new Text();
 
         TextField arrayTextField = new TextField("Array Size?");
+        TextField upperBoundsTextField = new TextField("Int Gen Upper Bounds");
 
         ArrayList<SortFactory> sortFactories = new ArrayList<SortFactory>();
 
@@ -79,6 +80,7 @@ public class GUI extends Application{
         buttonSort.setPrefHeight(35);
         buttonStyle.setPrefWidth(buttonWidth);
         arrayTextField.setPrefWidth(buttonWidth);
+        upperBoundsTextField.setPrefWidth(buttonWidth);
 
         //---------------------------------------------------------------------------------------------------
 
@@ -100,6 +102,20 @@ public class GUI extends Application{
         //-------------------------------------------------------------------------
         //Event handling
         //-------------------------------------------------------------------------
+        upperBoundsTextField.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                String strUpperBounds = upperBoundsTextField.getText();
+                int upperBounds = 0;
+                try{
+                    upperBounds = Integer.parseInt(strUpperBounds);
+                    IntArrayGenerate.setUpperBounds(upperBounds);
+                } catch(Exception e){
+                    System.err.println("Not a Valid Int");
+                }
+            }
+        });
+
         buttonExit.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
@@ -268,9 +284,10 @@ public class GUI extends Application{
         //arranging Check Boxes onto grid nodes
         gridPane.add(buttonExit, 0,25,1,2);
         gridPane.add(buttonSort,0,14,1,3);
-        gridPane.add(buttonStyle,0,20,1,2);
+        gridPane.add(buttonStyle,0,21,1,2);
 
         gridPane.add(arrayTextField, 0, 11,1,2);
+        gridPane.add(upperBoundsTextField,0,18,1,1);
 
         gridPane.add(bubbleCheckBox,0, 1);
         gridPane.add(mergeCheckBox,0, 2);
@@ -319,18 +336,6 @@ public class GUI extends Application{
             }
         });
 
-//        buttonResetData.setOnAction(new EventHandler<ActionEvent>() {
-//            @Override
-//            public void handle(ActionEvent actionEvent) {
-//                /* delete all data currently in play
-//                delete text boxes
-//                delete bar chart
-//                recreate an empty bar chart
-//                */
-//
-//                //choiceScene.
-//            }
-//        });
 
 
 
