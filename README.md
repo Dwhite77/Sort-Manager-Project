@@ -14,7 +14,8 @@ This is a very easy and intuitive to use random number array sorter, it allows f
 ## Instructions<a name="instructions"><a/>
 1. Choose which sort types you would like to use by selecting their respective check boxes.
 2. Select the length of random array you would like to generate.
-3. Click the "Start Sort" button.
+3. If you wish to change the upper bounds for the random numbers then input a number into the second text field, by default this number is 100, but if you input another integer into here and press enter this will be your new upper bounds. 
+4. Click the "Start Sort" button.
 
 ## Features <a name="features"><a/>
 
