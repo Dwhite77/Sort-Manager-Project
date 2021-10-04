@@ -229,9 +229,7 @@ public class GUI extends Application{
                         }
 
                         System.out.print("Random Array: " + strOutRand);
-                        if(myArr.length <= 100){
-                            textRandNums.setText("Random Array: " + strOutRand);
-                        }
+                        textRandNums.setText("Random Array: " + strOutRand);
                         //-----------------------------------------------------------------------------------------------------------------------------------
                         // This is what works out how much data we are going to display, on both the bar chart and the text outputs
                         //-----------------------------------------------------------------------------------------------------------------------------------
