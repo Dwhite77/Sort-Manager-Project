@@ -22,7 +22,7 @@ This is a very easy and intuitive to use random number array sorter, it allows f
 #### GUI
 Among the features unique to my sorter the first is an intuitive GUI that makes it far easier to use, as everything is spelled out for the user. ![GUI](gui.png)
 
-However for those who prefer that school feel, we still have the option to swap to an older console style version of the system, however this does have a reduced number of features. It does not have access to the inbuilt java library sort types
+However for those who prefer that school feel, we still have the option to swap to an older console style version of the system, however this does have a reduced number of features. It does not have access to the inbuilt java library sort types, or the ability to compare two sort types.
 #### Check Boxes
 No longer do they have to contend with clunky typed inputs instead I have implemented a simple Check Box system that allows multiple sorts to be run simultaneously for comparison.
 
