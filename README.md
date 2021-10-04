@@ -40,7 +40,7 @@ A Bar Chart makes the time comparisons far easier when it comes to larger number
 #### What did I learn?
 - How to use JavaFX being a big one, as this had to be learned from scratch in a matter of days, there are a number of bugs within javafx that make it more difficult to use than it should otherwise be. An example of this is the animations on Bar Charts tend to glitch out and prevent the correct name labels appearing when first assigned, as well as causing issues with data overwriting.
 - How to handle objects using an interface following a factory pattern.
-- A greater understanding of the MVC pattern.
+- A greater understanding of the MVC pattern, the project files are set out in a way to separate out these different sections. Mainly the view and controller from the model. However as both the view and controller are together in the GUI I combined the package, for ease of viewing.
 
 
 ## Testing <a name="testing"><a/>
